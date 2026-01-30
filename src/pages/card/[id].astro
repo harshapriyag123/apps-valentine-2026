@@ -4,6 +4,8 @@ import { getCard } from '../../lib/cards';
 import ReceiverView from '../../components/ReceiverView.svelte';
 import FloatingHearts from '../../components/FloatingHearts.svelte';
 
+export const prerender = false;
+
 const { id } = Astro.params;
 
 if (!id) {
