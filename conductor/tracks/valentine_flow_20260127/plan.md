@@ -24,8 +24,8 @@
 
 ## Phase 4: Recipient Experience (Interactive Card)
 - [x] Task: Create the base layout for the Recipient View with floating heart animations. 4e93107
-- [~] Task: Write tests for `ReceiverView.svelte` interaction logic (Yes/No buttons).
-- [ ] Task: Implement `ReceiverView.svelte` with the playful "No" button logic.
+- [x] Task: Write tests for `ReceiverView.svelte` interaction logic (Yes/No buttons). 91d0beb
+- [x] Task: Implement `ReceiverView.svelte` with the playful "No" button logic. 91d0beb
 - [ ] Task: Write tests for the celebratory animations and status update on "Yes".
 - [ ] Task: Implement celebratory animations using `canvas-confetti`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Recipient Experience (Interactive Card)' (Protocol in workflow.md)
