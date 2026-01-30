@@ -6,7 +6,7 @@
 - [x] Task: Set up basic project structure and TypeScript configuration. d00c9d7
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Project Initialization & Configuration' (Protocol in workflow.md) aef54b4
 
-## Phase 2: Data Layer & Firebase Setup
+## Phase 2: Data Layer & Firebase Setup [checkpoint: eaf9cac]
 - [x] Task: Set up Firebase project and Firestore database. fb04e42
 - [x] Task: Write tests for Firebase initialization and basic CRUD operations. e97273f
 - [x] Task: Implement Firebase client module with Svelte 5 rune compatibility. a9e632b
