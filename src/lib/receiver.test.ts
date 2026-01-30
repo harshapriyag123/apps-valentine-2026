@@ -47,4 +47,11 @@ describe('ReceiverViewLogic', () => {
     await logic.markAsViewed();
     expect(mockUpdateStatus).toHaveBeenCalledWith('id-1', 'viewed');
   });
+
+  it('should call onAccept callback when card is accepted', async () => {
+    const onAccept = mock(() => {});
+    const logic = new ReceiverViewLogic('id-1', fakeCard, onAccept);
+    await logic.accept();
+    expect(onAccept).toHaveBeenCalled();
+  });
 });

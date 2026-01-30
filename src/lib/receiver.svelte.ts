@@ -5,10 +5,12 @@ export class ReceiverViewLogic {
   card = $state<Card | null>(null);
   noButtonPos = $state({ x: 0, y: 0 });
   yesButtonScale = $state(1);
+  onAccept?: () => void;
 
-  constructor(id: string, initialCard: Card) {
+  constructor(id: string, initialCard: Card, onAccept?: () => void) {
     this.id = id;
     this.card = initialCard;
+    this.onAccept = onAccept;
   }
 
   async markAsViewed() {
@@ -27,6 +29,7 @@ export class ReceiverViewLogic {
 
   async accept() {
     await updateCardStatus(this.id, 'accepted');
+    this.onAccept?.();
   }
 
   async decline() {
