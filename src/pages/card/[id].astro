@@ -1,0 +1,33 @@
+---
+import '../../styles/global.css';
+import { getCard } from '../../lib/cards';
+import ReceiverView from '../../components/ReceiverView.svelte';
+import FloatingHearts from '../../components/FloatingHearts.svelte';
+
+const { id } = Astro.params;
+
+if (!id) {
+    return Astro.redirect('/404');
+}
+
+const card = await getCard(id);
+
+if (!card) {
+    return Astro.redirect('/404');
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Valentine for {card.receiver}</title>
+	</head>
+	<body class="bg-lavender-blush min-h-screen flex items-center justify-center p-4">
+        <FloatingHearts client:load />
+        <ReceiverView id={id} initialCard={card} client:load />
+	</body>
+</html>
