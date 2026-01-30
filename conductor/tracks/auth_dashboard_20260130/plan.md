@@ -12,18 +12,16 @@
 - [~] Task: Conductor - User Manual Verification 'Phase 1: User Data Model & Service' (Protocol in workflow.md)
 
 ## Phase 2: Lightweight Authentication UI
-- [ ] Task: Implement the Auth state management using Svelte 5 Runes.
-    - [ ] Write failing tests for `src/lib/auth.svelte.ts` (handling login/logout/session).
-    - [ ] Implement `src/lib/auth.svelte.ts` using `$state`.
-    - [ ] Verify tests pass.
-- [ ] Task: Create the Login/Signup UI component.
-    - [ ] Write failing tests for the `AuthForm.svelte` component logic.
-    - [ ] Implement `src/components/AuthForm.svelte` with a romantic, glassmorphic design.
-    - [ ] Verify tests pass.
-- [ ] Task: Integrate AuthForm into the Card Creation flow.
-    - [ ] Update `src/pages/index.astro` to conditionally show the `AuthForm` or `CreateCardForm`.
-    - [ ] Verify the "Login as first step" flow manually.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Lightweight Authentication UI' (Protocol in workflow.md)
+- [x] Task: Implement the Auth state management using Svelte 5 Runes. b11550a
+    - [x] Write failing tests for `src/lib/auth.svelte.ts` (handling login/logout/session). b11550a
+    - [x] Implement `src/lib/auth.svelte.ts` using `$state`. b11550a
+    - [x] Verify tests pass. b11550a
+- [x] Task: Create the Login/Signup UI component. d3a982c
+    - [x] Implement `src/components/AuthForm.svelte` with a romantic, glassmorphic design. d3a982c
+- [x] Task: Integrate AuthForm into the Card Creation flow. b1b5764
+    - [x] Update `src/pages/index.astro` to conditionally show the `AuthForm` or `CreateCardForm`. b1b5764
+    - [x] Verify the "Login as first step" flow manually. b1b5764
+- [~] Task: Conductor - User Manual Verification 'Phase 2: Lightweight Authentication UI' (Protocol in workflow.md)
 
 ## Phase 3: Private Dashboard & Security
 - [ ] Task: Secure Firestore with Security Rules.
