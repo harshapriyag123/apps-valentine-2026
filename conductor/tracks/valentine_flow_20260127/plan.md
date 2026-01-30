@@ -26,9 +26,9 @@
 - [x] Task: Create the base layout for the Recipient View with floating heart animations. 4e93107
 - [x] Task: Write tests for `ReceiverView.svelte` interaction logic (Yes/No buttons). 91d0beb
 - [x] Task: Implement `ReceiverView.svelte` with the playful "No" button logic. 91d0beb
-- [ ] Task: Write tests for the celebratory animations and status update on "Yes".
-- [ ] Task: Implement celebratory animations using `canvas-confetti`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Recipient Experience (Interactive Card)' (Protocol in workflow.md)
+- [x] Task: Write tests for the celebratory animations and status update on "Yes". 7a5e405
+- [x] Task: Implement celebratory animations using `canvas-confetti`. 7a5e405
+- [~] Task: Conductor - User Manual Verification 'Phase 4: Recipient Experience (Interactive Card)' (Protocol in workflow.md)
 
 ## Phase 5: PWA & Final Polish
 - [ ] Task: Configure Astro PWA integration for offline support.
