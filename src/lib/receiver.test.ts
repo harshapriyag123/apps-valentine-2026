@@ -17,6 +17,7 @@ import { Timestamp } from 'firebase/firestore';
 
 const fakeCard: Card = {
   sender: 'Romeo',
+  senderUsername: 'romeo',
   receiver: 'Juliet',
   message: 'Love',
   theme: 'romantic',

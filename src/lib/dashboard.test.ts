@@ -9,7 +9,7 @@ beforeAll(() => {
 // Mock the dashboard service
 mock.module('./dashboard', () => ({
   subscribeToCards: (ids: string[], cb: any) => {
-    cb(ids.map(id => ({ id, sender: 'test', receiver: 'test', status: 'sent' })));
+    cb(ids.map(id => ({ id, sender: 'test', senderUsername: 'test', receiver: 'test', status: 'sent' })));
     return () => {};
   }
 }));

@@ -13,6 +13,7 @@ import {
 export interface Card {
   id?: string;
   sender: string;
+  senderUsername: string;
   receiver: string;
   message: string;
   theme: 'romantic' | 'playful' | 'elegant';
