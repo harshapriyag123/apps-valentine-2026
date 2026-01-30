@@ -11,5 +11,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: when user already logged in, the button for send love should be working as intended, but currently it's not working. fix this.**
+- [x] **Track: when user already logged in, the button for send love should be working as intended, but currently it's not working. fix this.**
 *Link: [./tracks/fix_send_love_button_20260130/](./tracks/fix_send_love_button_20260130/)*
