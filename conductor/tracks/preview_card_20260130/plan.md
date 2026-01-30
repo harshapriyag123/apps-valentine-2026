@@ -28,13 +28,13 @@ Implement the real-time synchronization and the split-screen view for desktop.
 ## Phase 3: Mobile Responsive Tabs [checkpoint: pending]
 Add the tabbed interface for mobile and ensure the "Send Love" button is always accessible.
 
-- [ ] Task: Implement Mobile Tab UI in `CreateCardForm.svelte`.
-    - [ ] Create a "Edit / Preview" toggle visible only on small screens.
-    - [ ] Use Svelte state to manage the active tab.
-- [ ] Task: Implement Sticky "Send Love" Button.
-    - [ ] Move the "Send Love" button out of the scrollable form container.
-    - [ ] Position it as a fixed/sticky element at the bottom of the screen on mobile.
-- [ ] Task: Final UX Polish.
-    - [ ] Ensure smooth transitions between tabs.
-    - [ ] Verify touch targets and layout on mobile emulation.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Mobile Responsive Tabs' (Protocol in workflow.md)
+- [x] Task: Implement Mobile Tab UI in `CreateCardForm.svelte`. [6b1889d]
+    - [x] Create a "Edit / Preview" toggle visible only on small screens.
+    - [x] Use Svelte state to manage the active tab.
+- [x] Task: Implement Sticky "Send Love" Button. [6b1889d]
+    - [x] Move the "Send Love" button out of the scrollable form container.
+    - [x] Position it as a fixed/sticky element at the bottom of the screen on mobile.
+- [x] Task: Final UX Polish. [6b1889d]
+    - [x] Ensure smooth transitions between tabs.
+    - [x] Verify touch targets and layout on mobile emulation.
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Mobile Responsive Tabs' (Protocol in workflow.md) [6b1889d]
