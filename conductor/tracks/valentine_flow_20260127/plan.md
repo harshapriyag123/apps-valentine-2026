@@ -22,7 +22,7 @@
 - [x] Task: Implement `StatusTracker.svelte` with real-time Firestore updates using `$effect`. ac7f425
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Sender Experience (Form & Dashboard)' (Protocol in workflow.md) 0fc3a7d
 
-## Phase 4: Recipient Experience (Interactive Card)
+## Phase 4: Recipient Experience (Interactive Card) [checkpoint: cbad257]
 - [x] Task: Create the base layout for the Recipient View with floating heart animations. 4e93107
 - [x] Task: Write tests for `ReceiverView.svelte` interaction logic (Yes/No buttons). 91d0beb
 - [x] Task: Implement `ReceiverView.svelte` with the playful "No" button logic. 91d0beb
