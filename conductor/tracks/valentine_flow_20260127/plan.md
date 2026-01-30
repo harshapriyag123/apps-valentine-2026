@@ -1,7 +1,7 @@
 # Implementation Plan: Core Valentine's Card Flow
 
 ## Phase 1: Project Initialization & Configuration
-- [ ] Task: Initialize Astro project with Svelte and Tailwind CSS integration.
+- [~] Task: Initialize Astro project with Svelte and Tailwind CSS integration.
 - [ ] Task: Configure Tailwind CSS with the custom Valentine design system.
 - [ ] Task: Set up basic project structure and TypeScript configuration.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Initialization & Configuration' (Protocol in workflow.md)
