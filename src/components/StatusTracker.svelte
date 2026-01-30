@@ -1,9 +1,5 @@
 <script lang="ts">
   import { DashboardState } from '../lib/dashboard.svelte';
-  import { authState } from '../lib/auth.svelte'; // Oops, I removed the global export. 
-  // I need to accept authState as a prop or rely on the parent passing it.
-  // MainApp has it.
-  
   import type { AuthState } from '../lib/auth.svelte';
 
   interface Props {
