@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
-import CreateCardForm from '../components/CreateCardForm.svelte';
-import StatusTracker from '../components/StatusTracker.svelte';
+import MainApp from '../components/MainApp.svelte';
 ---
 
 <html lang="en">
@@ -14,15 +13,6 @@ import StatusTracker from '../components/StatusTracker.svelte';
 		<title>Valentine's Day PWA</title>
 	</head>
 	<body class="bg-lavender-blush min-h-screen py-12 px-4">
-		<main class="max-w-4xl mx-auto">
-            <h1 class="text-deep-raspberry text-5xl font-bold text-center mb-12 animate-heartbeat">
-                Be My Valentine
-            </h1>
-            
-            <div class="grid md:grid-cols-1 gap-8">
-                <CreateCardForm client:load />
-                <StatusTracker client:load />
-            </div>
-        </main>
+		<MainApp client:load />
 	</body>
 </html>

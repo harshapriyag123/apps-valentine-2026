@@ -1,7 +1,14 @@
 <script lang="ts">
   import { CreateCardFormState } from '../lib/create-card.svelte';
+  import type { AuthState } from '../lib/auth.svelte';
 
-  const form = new CreateCardFormState();
+  interface Props {
+    authState: AuthState;
+  }
+
+  let { authState }: Props = $props();
+
+  const form = new CreateCardFormState(authState.user?.senderName, authState.user?.username);
 
   function onCardCreated(id: string) {
     if (typeof window !== 'undefined') {
@@ -21,19 +28,18 @@
   <h2 class="text-2xl font-bold text-deep-raspberry mb-4">Create Your Valentine</h2>
   
   <div class="flex flex-col gap-1">
-    <label for="sender" class="text-sm font-medium text-deep-raspberry">Your Name</label>
+    <label for="sender" class="text-sm font-medium text-deep-raspberry">From</label>
     <input
       type="text"
       id="sender"
       bind:value={form.sender}
-      required
-      placeholder="e.g. Romeo"
-      class="p-2 rounded-lg bg-white/50 border border-vivid-pink/30 focus:border-vivid-pink outline-none transition-all"
+      readonly
+      class="p-2 rounded-lg bg-gray-100/50 border border-gray-300 text-gray-500 outline-none"
     />
   </div>
 
   <div class="flex flex-col gap-1">
-    <label for="receiver" class="text-sm font-medium text-deep-raspberry">Their Name</label>
+    <label for="receiver" class="text-sm font-medium text-deep-raspberry">To (Their Name)</label>
     <input
       type="text"
       id="receiver"

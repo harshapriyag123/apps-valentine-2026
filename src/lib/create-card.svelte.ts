@@ -2,18 +2,14 @@ import { createCard } from './cards';
 
 export class CreateCardFormState {
   sender = $state('');
+  senderUsername = $state('');
   receiver = $state('');
   message = $state('');
   theme = $state<'romantic' | 'playful' | 'elegant'>('romantic');
   
-  submitting = $state(false);
-  error = $state<string | null>(null);
-  success = $state<string | null>(null);
-
-  get isValid() {
-    return this.sender.trim() !== '' && 
-           this.receiver.trim() !== '' && 
-           this.message.trim() !== '';
+  constructor(sender: string = '', senderUsername: string = '') {
+    this.sender = sender;
+    this.senderUsername = senderUsername;
   }
 
   async submit() {
@@ -29,6 +25,7 @@ export class CreateCardFormState {
     try {
       const id = await createCard({
         sender: this.sender,
+        senderUsername: this.senderUsername,
         receiver: this.receiver,
         message: this.message,
         theme: this.theme
