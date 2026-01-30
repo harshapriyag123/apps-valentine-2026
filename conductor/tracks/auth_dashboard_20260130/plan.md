@@ -23,7 +23,7 @@
     - [x] Verify the "Login as first step" flow manually. b1b5764
 - [~] Task: Conductor - User Manual Verification 'Phase 2: Lightweight Authentication UI' (Protocol in workflow.md)
 
-## Phase 3: Private Dashboard & Security
+## Phase 3: Private Dashboard & Security [checkpoint: 7fba88a]
 - [x] Task: Secure Firestore with Security Rules. 58cdf7a
     - [x] Draft `firestore.rules` to allow card reading only if `senderUsername` matches. 58cdf7a
     - [x] (Note: Manual step to apply rules in Firebase console or CLI). 58cdf7a
