@@ -16,11 +16,16 @@
     {#if !authState.user}
       <AuthForm {authState} />
     {:else}
-      <div class="flex flex-col gap-4 items-center mb-8">
-        <p class="text-deep-raspberry font-medium">Logged in as: <span class="font-bold">{authState.user.senderName}</span> (@{authState.user.username})</p>
+      <div class="glass px-6 py-3 rounded-full flex justify-between items-center mb-4 max-w-md mx-auto w-full">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <p class="text-deep-raspberry text-sm font-medium">
+            {authState.user.senderName}
+          </p>
+        </div>
         <button 
           onclick={() => authState.logout()}
-          class="text-xs text-vivid-pink hover:underline"
+          class="text-xs font-bold text-vivid-pink uppercase tracking-wider hover:opacity-70 transition-opacity"
         >
           Logout
         </button>
