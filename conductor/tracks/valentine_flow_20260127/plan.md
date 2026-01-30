@@ -20,7 +20,7 @@
 - [x] Task: Implement `CreateCard.svelte` using `$state` for form data. 7fd4512
 - [x] Task: Write tests for the Status Tracker dashboard logic. ac7f425
 - [x] Task: Implement `StatusTracker.svelte` with real-time Firestore updates using `$effect`. ac7f425
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Sender Experience (Form & Dashboard)' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Sender Experience (Form & Dashboard)' (Protocol in workflow.md) 0fc3a7d
 
 ## Phase 4: Recipient Experience (Interactive Card)
 - [ ] Task: Create the base layout for the Recipient View with floating heart animations.
