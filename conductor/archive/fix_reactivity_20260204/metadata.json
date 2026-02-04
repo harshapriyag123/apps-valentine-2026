@@ -1,0 +1,8 @@
+{
+  "track_id": "fix_reactivity_20260204",
+  "type": "bug",
+  "status": "completed",
+  "created_at": "2026-02-04T10:00:00Z",
+  "updated_at": "2026-02-04T10:15:00Z",
+  "description": "Fix reactivity anti-patterns (state_referenced_locally) in Svelte 5 components."
+}
