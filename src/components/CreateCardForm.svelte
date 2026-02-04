@@ -37,7 +37,7 @@
 </script>
 
 <div
-  class="flex flex-col lg:flex-row gap-8 items-start justify-center max-w-6xl mx-auto w-full px-4 pt-4 pb-24 lg:py-8 min-h-screen"
+  class="flex flex-col lg:flex-row gap-8 items-start justify-center max-w-6xl mx-auto w-full px-4 pt-4 pb-8"
 >
   <!-- Mobile Tabs Toggle -->
   <div class="lg:hidden flex w-full p-1 bg-gray-100 rounded-xl mb-4">
@@ -166,7 +166,9 @@
     >
       Live Preview
     </h3>
-    <CardDisplay card={previewCard} previewMode={true} />
+    <div>
+      <CardDisplay card={previewCard} previewMode={true} />
+    </div>
   </div>
 
   <!-- Sticky Mobile Action Button -->
