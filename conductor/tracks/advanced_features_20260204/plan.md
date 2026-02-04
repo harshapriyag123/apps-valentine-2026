@@ -1,6 +1,6 @@
 # Implementation Plan: Advanced Card Features & Limits
 
-## Phase 1: Single Card Enforcement
+## Phase 1: Single Card Enforcement [checkpoint: afcdb9a]
 - [x] Task: Update Card Service to prevent multiple cards. feff8bc
     - [ ] Write failing test in `src/lib/cards.test.ts` to ensure `createCard` fails if a card already exists for the user.
     - [ ] Implement check in `src/lib/cards.ts` using a Firestore query or by checking the local session state.
