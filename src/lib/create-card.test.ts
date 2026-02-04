@@ -54,4 +54,29 @@ describe('CreateCardFormState', () => {
     await form.submit();
     expect(form.error).toBe('Please fill in all fields.');
   });
+
+  it('should handle custom buttons correctly', () => {
+    const form = new CreateCardFormState('Romeo', 'romeo');
+    form.receiver = 'Juliet';
+    form.message = 'Love';
+    
+    expect(form.useCustomButtons).toBe(false);
+    expect(form.isValid).toBe(true);
+    
+    form.useCustomButtons = true;
+    form.button1Text = '';
+    expect(form.isValid).toBe(false);
+    
+    form.button1Text = 'Yes!';
+    expect(form.isValid).toBe(true);
+  });
+
+  it('should reset new feature fields after reset', () => {
+    const form = new CreateCardFormState();
+    form.useCustomButtons = true;
+    form.allowReply = true;
+    form.reset();
+    expect(form.useCustomButtons).toBe(false);
+    expect(form.allowReply).toBe(false);
+  });
 });

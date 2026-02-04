@@ -33,6 +33,10 @@
     message: form.message,
     theme: form.theme,
     status: "sent" as const,
+    useCustomButtons: form.useCustomButtons,
+    button1Text: form.button1Text,
+    button2Text: form.button2Text,
+    allowReply: form.allowReply,
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
   });
@@ -131,6 +135,69 @@
         <option value="playful">Playful</option>
         <option value="elegant">Elegant</option>
       </select>
+    </div>
+
+    <div class="border-t border-vivid-pink/10 pt-4 mt-2 flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <label
+          for="useCustomButtons"
+          class="text-sm font-bold text-deep-raspberry cursor-pointer"
+          >Custom Choice Buttons</label
+        >
+        <input
+          type="checkbox"
+          id="useCustomButtons"
+          bind:checked={form.useCustomButtons}
+          class="w-5 h-5 accent-vivid-pink cursor-pointer"
+        />
+      </div>
+
+      {#if form.useCustomButtons}
+        <div class="grid grid-cols-2 gap-2 animate-fade-in">
+          <div class="flex flex-col gap-1">
+            <label
+              for="button1"
+              class="text-[10px] uppercase font-bold text-gray-400"
+              >Button 1</label
+            >
+            <input
+              type="text"
+              id="button1"
+              bind:value={form.button1Text}
+              placeholder="Yes"
+              class="p-2 text-sm rounded-lg bg-white/50 border border-vivid-pink/20 outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label
+              for="button2"
+              class="text-[10px] uppercase font-bold text-gray-400"
+              >Button 2</label
+            >
+            <input
+              type="text"
+              id="button2"
+              bind:value={form.button2Text}
+              placeholder="No"
+              class="p-2 text-sm rounded-lg bg-white/50 border border-vivid-pink/20 outline-none"
+            />
+          </div>
+        </div>
+      {/if}
+
+      <div class="flex items-center justify-between">
+        <label
+          for="allowReply"
+          class="text-sm font-bold text-deep-raspberry cursor-pointer"
+          >Allow Text Reply</label
+        >
+        <input
+          type="checkbox"
+          id="allowReply"
+          bind:checked={form.allowReply}
+          class="w-5 h-5 accent-vivid-pink cursor-pointer"
+        />
+      </div>
     </div>
 
     <!-- Submit button inside form for desktop accessibility -->
