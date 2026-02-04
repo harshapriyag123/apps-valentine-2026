@@ -12,7 +12,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Single Card Enforcement' (Protocol in workflow.md)
 
 ## Phase 2: Data Model & Card Creation (Custom Buttons & Replies)
-- [ ] Task: Update Card Schema and Type definitions.
+- [x] Task: Update Card Schema and Type definitions. cae8585
     - [ ] Update `Card` interface in `src/lib/cards.ts` to include `useCustomButtons` (boolean), `button1Text` (string), `button2Text` (string), `allowReply` (boolean), and `replyText` (string).
     - [ ] Write failing test for card creation with these new fields.
     - [ ] Verify tests pass.
