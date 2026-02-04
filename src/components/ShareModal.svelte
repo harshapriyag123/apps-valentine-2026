@@ -18,8 +18,8 @@
         width: 200,
         margin: 2,
         color: {
-          dark: "#8B1E3F", // Deep Raspberry
-          light: "#FFF0F5", // Lavender Blush
+          dark: "#000000", // Black for best scannability
+          light: "#FFFFFF", // Pure white for best contrast
         },
       }, (error) => {
         if (error) console.error("QR Code Error:", error);
@@ -44,16 +44,16 @@
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
     onclick={onClose}
-    class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-fade-in"
+    class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-fade-in"
   >
     <!-- Modal -->
     <div
       onclick={(e) => e.stopPropagation()}
-      class="glass p-8 rounded-3xl max-w-sm w-full shadow-2xl flex flex-col items-center gap-6 relative animate-pop-in border-vivid-pink/30"
+      class="bg-white p-8 rounded-3xl max-w-sm w-full shadow-2xl flex flex-col items-center gap-6 relative animate-pop-in border border-vivid-pink/30"
     >
       <button
         onclick={onClose}
-        class="absolute top-4 right-4 text-deep-raspberry/40 hover:text-vivid-pink transition-colors"
+        class="absolute top-4 right-4 text-deep-raspberry/60 hover:text-vivid-pink transition-colors p-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -74,13 +74,13 @@
       <h2 class="text-2xl font-bold text-deep-raspberry">Share the Love</h2>
 
       <div
-        class="bg-lavender-blush p-4 rounded-2xl border-2 border-vivid-pink/20 shadow-inner"
+        class="bg-white p-4 rounded-2xl border-2 border-vivid-pink/10 shadow-sm"
       >
-        <canvas bind:this={canvas} class="rounded-lg shadow-sm"></canvas>
+        <canvas bind:this={canvas} class="rounded-lg"></canvas>
       </div>
 
       <div class="w-full flex flex-col gap-2">
-        <p class="text-xs font-bold text-deep-raspberry/40 uppercase tracking-widest text-center">
+        <p class="text-xs font-bold text-deep-raspberry/60 uppercase tracking-widest text-center">
           Card Link
         </p>
         <div class="flex gap-2">
@@ -88,7 +88,7 @@
             type="text"
             readonly
             value={url}
-            class="flex-1 p-2 text-xs rounded-lg bg-white/50 border border-vivid-pink/20 text-gray-600 outline-none"
+            class="flex-1 p-2 text-xs rounded-lg bg-lavender-blush/30 border border-vivid-pink/20 text-deep-raspberry font-medium outline-none"
           />
           <button
             onclick={copyToClipboard}
@@ -99,7 +99,7 @@
         </div>
       </div>
 
-      <p class="text-xs text-deep-raspberry/60 italic text-center">
+      <p class="text-xs text-deep-raspberry/60 italic text-center leading-relaxed">
         Scanning the QR code will take your Valentine directly to their card.
       </p>
     </div>
