@@ -1,0 +1,8 @@
+{
+  "track_id": "ui_refactor_ordering_20260204",
+  "type": "chore",
+  "status": "new",
+  "created_at": "2026-02-04T12:00:00Z",
+  "updated_at": "2026-02-04T12:00:00Z",
+  "description": "Switch the order of 'Custom Choice Button' and 'Hide Choice Button' in the creation form and add dependency logic."
+}
