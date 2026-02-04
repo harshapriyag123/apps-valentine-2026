@@ -5,6 +5,7 @@ export class DashboardState {
   cards = $state<Card[]>([]);
   loading = $state(true);
   username = $state('');
+  hasCard = $derived(this.cards.length > 0);
 
   constructor(username: string) {
     this.username = username;

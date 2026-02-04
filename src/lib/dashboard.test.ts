@@ -3,6 +3,7 @@ import { describe, it, expect, mock, beforeAll } from 'bun:test';
 // Mock Svelte 5 runes globally
 beforeAll(() => {
   (globalThis as any).$state = (v: any) => v;
+  (globalThis as any).$derived = (fn: any) => fn;
   (globalThis as any).$effect = (fn: any) => fn();
 });
 

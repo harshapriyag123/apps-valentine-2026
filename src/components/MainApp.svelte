@@ -1,10 +1,16 @@
 <script lang="ts">
   import { AuthState } from "../lib/auth.svelte";
+  import { DashboardState } from "../lib/dashboard.svelte";
   import AuthForm from "./AuthForm.svelte";
   import CreateCardForm from "./CreateCardForm.svelte";
   import StatusTracker from "./StatusTracker.svelte";
 
   const authState = new AuthState();
+
+  // Reactive dashboard state to check for existing cards
+  let dashboard = $derived(
+    authState.user ? new DashboardState(authState.user.username) : null,
+  );
 </script>
 
 <main class="max-w-4xl mx-auto min-h-screen flex flex-col justify-center py-12">
@@ -35,7 +41,16 @@
         </button>
       </div>
 
-      <CreateCardForm {authState} />
+      {#if dashboard?.hasCard}
+        <div class="glass p-8 rounded-2xl max-w-md w-full mx-auto mb-8 text-center border-vivid-pink/30">
+          <p class="text-deep-raspberry font-medium">
+            💖 You have crafted your one special Valentine.
+          </p>
+        </div>
+      {:else}
+        <CreateCardForm {authState} />
+      {/if}
+      
       <StatusTracker {authState} />
     {/if}
   </div>
