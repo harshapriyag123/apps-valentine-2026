@@ -75,8 +75,10 @@ describe('CreateCardFormState', () => {
     const form = new CreateCardFormState();
     form.useCustomButtons = true;
     form.allowReply = true;
+    form.hideButtons = true;
     form.reset();
     expect(form.useCustomButtons).toBe(false);
     expect(form.allowReply).toBe(false);
+    expect(form.hideButtons).toBe(false);
   });
 });

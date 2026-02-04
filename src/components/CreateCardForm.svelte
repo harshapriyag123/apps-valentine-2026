@@ -36,6 +36,7 @@
     useCustomButtons: form.useCustomButtons,
     button1Text: form.button1Text,
     button2Text: form.button2Text,
+    hideButtons: form.hideButtons,
     allowReply: form.allowReply,
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
@@ -148,6 +149,20 @@
           type="checkbox"
           id="useCustomButtons"
           bind:checked={form.useCustomButtons}
+          class="w-5 h-5 accent-vivid-pink cursor-pointer"
+        />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <label
+          for="hideButtons"
+          class="text-sm font-bold text-deep-raspberry cursor-pointer"
+          >Hide Choice Buttons</label
+        >
+        <input
+          type="checkbox"
+          id="hideButtons"
+          bind:checked={form.hideButtons}
           class="w-5 h-5 accent-vivid-pink cursor-pointer"
         />
       </div>

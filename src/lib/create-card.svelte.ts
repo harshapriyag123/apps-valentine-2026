@@ -16,13 +16,17 @@ export class CreateCardFormState {
 
   // New Features
 
-  useCustomButtons = $state(false);
+    useCustomButtons = $state(false);
 
-  button1Text = $state('Yes');
+    button1Text = $state('Yes');
 
-  button2Text = $state('No');
+    button2Text = $state('No');
 
-  allowReply = $state(false);
+    hideButtons = $state(false);
+
+    allowReply = $state(false);
+
+  
 
   
 
@@ -98,52 +102,58 @@ export class CreateCardFormState {
 
         useCustomButtons: this.useCustomButtons,
 
-        button1Text: this.useCustomButtons ? this.button1Text : undefined,
+                button1Text: this.useCustomButtons ? this.button1Text : undefined,
 
-        button2Text: this.useCustomButtons ? this.button2Text : undefined,
+                button2Text: this.useCustomButtons ? this.button2Text : undefined,
 
-        allowReply: this.allowReply
+                hideButtons: this.hideButtons,
 
-      });
+                allowReply: this.allowReply
 
-      this.success = id;
+              });
 
-      this.reset();
+              this.success = id;
 
-    } catch (err) {
+              this.reset();
 
-      this.error = 'Failed to create card. Please try again.';
+            } catch (err) {
 
-      console.error(err);
+              this.error = 'Failed to create card. Please try again.';
 
-    } finally {
+              console.error(err);
 
-      this.submitting = false;
+            } finally {
 
-    }
+              this.submitting = false;
 
-  }
+            }
 
+          }
 
+        
 
-  reset() {
+          reset() {
 
-    this.receiver = '';
+            this.receiver = '';
 
-    this.message = '';
+            this.message = '';
 
-    this.theme = 'romantic';
+            this.theme = 'romantic';
 
-    this.useCustomButtons = false;
+            this.useCustomButtons = false;
 
-    this.button1Text = 'Yes';
+            this.button1Text = 'Yes';
 
-    this.button2Text = 'No';
+            this.button2Text = 'No';
 
-    this.allowReply = false;
+            this.hideButtons = false;
 
-    // Don't reset sender info as it might be from auth
+            this.allowReply = false;
 
-  }
+            // Don't reset sender info as it might be from auth
 
-}
+          }
+
+        }
+
+        

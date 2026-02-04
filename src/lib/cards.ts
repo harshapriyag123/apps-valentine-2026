@@ -24,6 +24,7 @@ export interface Card {
 	useCustomButtons?: boolean;
 	button1Text?: string;
 	button2Text?: string;
+	hideButtons?: boolean;
 	allowReply?: boolean;
 	replyText?: string;
 	createdAt: Timestamp;
