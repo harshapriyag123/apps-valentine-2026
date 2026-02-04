@@ -60,4 +60,21 @@ describe("ReceiverView Reactivity Bug", () => {
         // EXPECTATION: logic.id should be updated to "card-2"
         expect(component.logic.id).toBe("card-2");
     });
+
+    it("correctly holds custom button data", () => {
+        const initialCard = {
+            id: "card-1",
+            useCustomButtons: true,
+            button1Text: "Date Night?",
+            button2Text: "Movie?",
+            sender: "Romeo",
+            receiver: "Juliet"
+        };
+        const initialProps = { id: "card-1", initialCard };
+        const component = new ReceiverViewSimulation(initialProps);
+
+        expect(component.logic.card?.useCustomButtons).toBe(true);
+        expect(component.logic.card?.button1Text).toBe("Date Night?");
+        expect(component.logic.card?.button2Text).toBe("Movie?");
+    });
 });
