@@ -52,12 +52,12 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Share Modal & QR Code' (Protocol in workflow.md)
 
 ## Phase 5: Response Inbox
-- [ ] Task: Implement Inbox logic in `src/lib/dashboard.ts`.
+- [x] Task: Implement Inbox logic in `src/lib/dashboard.ts`. 4dcf74a
     - [ ] Write failing test for retrieving the `replyText` field from a card.
     - [ ] Ensure the dashboard state correctly reflects the presence of a reply.
     - [ ] Verify tests pass.
-- [ ] Task: Create `InboxView.svelte` or Dashboard detail section.
-    - [ ] Create a romantic, focused UI for reading the text response.
-    - [ ] Add a "View Reply" link/button to the card summary in `StatusTracker.svelte`.
+- [x] Task: Create `InboxView.svelte` or Dashboard detail section. 4dcf74a
+    - [x] Create a romantic, focused UI for reading the text response.
+    - [x] Add a "View Reply" link/button to the card summary in `StatusTracker.svelte`.
     - [ ] Write tests for the Inbox component rendering and data display.
 - [ ] Task: Conductor - User Manual Verification 'Phase 5: Response Inbox' (Protocol in workflow.md)
