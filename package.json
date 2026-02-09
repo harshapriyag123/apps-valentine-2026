@@ -18,6 +18,7 @@
     "firebase": "^12.8.0",
     "qrcode": "^1.5.4",
     "svelte": "^5.49.0",
+    "svelte-motion": "^0.12.2",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
   },
