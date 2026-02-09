@@ -1,4 +1,4 @@
-import { describe, expect, it, spyOn } from "bun:test";
+import { describe, expect, it } from "bun:test";
 
 // Mock Svelte runes before anything else
 (globalThis as any).$state = (v: any) => v;

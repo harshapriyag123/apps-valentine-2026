@@ -1,46 +1,48 @@
 <script lang="ts">
-import QRCode from "qrcode";
+  import QRCode from "qrcode";
 
-interface Props {
-	url: string;
-	isOpen: boolean;
-	onClose: () => void;
-}
+  interface Props {
+    url: string;
+    isOpen: boolean;
+    onClose: () => void;
+  }
 
-let { url, isOpen, onClose }: Props = $props();
+  let { url, isOpen, onClose }: Props = $props();
 
-let canvas = $state<HTMLCanvasElement | null>(null);
-let copySuccess = $state(false);
+  let canvas = $state<HTMLCanvasElement | null>(null);
+  let copySuccess = $state(false);
 
-$effect(() => {
-	if (isOpen && canvas && url) {
-		QRCode.toCanvas(
-			canvas,
-			url,
-			{
-				width: 200,
-				margin: 2,
-				color: {
-					dark: "#000000", // Black for best scannability
-					light: "#FFFFFF", // Pure white for best contrast
-				},
-			},
-			(error) => {
-				if (error) console.error("QR Code Error:", error);
-			},
-		);
-	}
-});
+  $effect(() => {
+    if (isOpen && canvas && url) {
+      QRCode.toCanvas(
+        canvas,
+        url,
+        {
+          width: 200,
+          margin: 2,
+          color: {
+            dark: "#000000", // Black for best scannability
+            light: "#FFFFFF", // Pure white for best contrast
+          },
+        },
+        (error) => {
+          if (error) console.error("QR Code Error:", error);
+        },
+      );
+    }
+  });
 
-async function copyToClipboard() {
-	try {
-		await navigator.clipboard.writeText(url);
-		copySuccess = true;
-		setTimeout(() => (copySuccess = false), 2000);
-	} catch (err) {
-		console.error("Failed to copy:", err);
-	}
-}
+  async function copyToClipboard() {
+    try {
+      await navigator.clipboard.writeText(url);
+      copySuccess = true;
+      setTimeout(() => {
+        copySuccess = false;
+      }, 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  }
 </script>
 
 {#if isOpen}
@@ -58,7 +60,8 @@ async function copyToClipboard() {
     >
       <button
         onclick={onClose}
-        class="absolute top-4 right-4 text-deep-raspberry/60 hover:text-vivid-pink transition-colors p-2"
+        aria-label="Close modal"
+        class="absolute top-4 right-4 text-deep-raspberry/60 hover:text-vivid-pink transition-all p-2 hover:scale-110 hover:rotate-90 active:scale-95"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +75,7 @@ async function copyToClipboard() {
             stroke-linejoin="round"
             stroke-width="2"
             d="M6 18L18 6M6 6l12 12"
-          />
+          ></path>
         </svg>
       </button>
 
@@ -85,7 +88,9 @@ async function copyToClipboard() {
       </div>
 
       <div class="w-full flex flex-col gap-2">
-        <p class="text-xs font-bold text-deep-raspberry/60 uppercase tracking-widest text-center">
+        <p
+          class="text-xs font-bold text-deep-raspberry/60 uppercase tracking-widest text-center"
+        >
           Card Link
         </p>
         <div class="flex gap-2">
@@ -97,14 +102,16 @@ async function copyToClipboard() {
           />
           <button
             onclick={copyToClipboard}
-            class="bg-vivid-pink text-white px-4 py-2 rounded-lg text-xs font-bold skeuo-button whitespace-nowrap"
+            class="bg-vivid-pink text-white px-4 py-2 rounded-lg text-xs font-bold skeuo-button whitespace-nowrap transition-all hover:scale-[1.05] active:scale-95"
           >
             {copySuccess ? "Copied!" : "Copy"}
           </button>
         </div>
       </div>
 
-      <p class="text-xs text-deep-raspberry/60 italic text-center leading-relaxed">
+      <p
+        class="text-xs text-deep-raspberry/60 italic text-center leading-relaxed"
+      >
         Scanning the QR code will take your Valentine directly to their card.
       </p>
     </div>
@@ -113,13 +120,23 @@ async function copyToClipboard() {
 
 <style>
   @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes pop-in {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .animate-fade-in {

@@ -1,63 +1,65 @@
 <script lang="ts">
-import type { Card } from "../lib/cards";
+    import { scale } from "svelte/transition";
+    import type { Card } from "../lib/cards";
 
-interface Props {
-	card: Card;
-	previewMode?: boolean;
-	onYes?: () => void;
-	onNo?: () => void;
-	onNoHover?: () => void;
-	yesButtonScale?: number;
-	noButtonPos?: { x: number; y: number };
-	// Reply props
-	replyText?: string;
-	replySubmitting?: boolean;
-	replySuccess?: boolean;
-	onReplySubmit?: () => void;
-}
+    interface Props {
+        card: Card;
+        previewMode?: boolean;
+        onYes?: () => void;
+        onNo?: () => void;
+        onNoHover?: () => void;
+        yesButtonScale?: number;
+        noButtonPos?: { x: number; y: number };
+        // Reply props
+        replyText?: string;
+        replySubmitting?: boolean;
+        replySuccess?: boolean;
+        onReplySubmit?: () => void;
+    }
 
-let {
-	card,
-	previewMode = false,
-	onYes,
-	onNo,
-	onNoHover,
-	yesButtonScale = 1,
-	noButtonPos = { x: 0, y: 0 },
-	replyText = $bindable(""),
-	replySubmitting = false,
-	replySuccess = false,
-	onReplySubmit,
-}: Props = $props();
+    let {
+        card,
+        previewMode = false,
+        onYes,
+        onNo,
+        onNoHover,
+        yesButtonScale = 1,
+        noButtonPos = { x: 0, y: 0 },
+        replyText = $bindable(""),
+        replySubmitting = false,
+        replySuccess = false,
+        onReplySubmit,
+    }: Props = $props();
 
-let validationError = $state<string | null>(null);
+    let validationError = $state<string | null>(null);
 
-function handleYesClick() {
-	if (card.allowReply && !replySuccess) {
-		validationError = "Please send your reply first! ❤️";
-		return;
-	}
-	validationError = null;
-	onYes?.();
-}
+    function handleYesClick() {
+        if (card.allowReply && !replySuccess) {
+            validationError = "Please send your reply first! ❤️";
+            return;
+        }
+        validationError = null;
+        onYes?.();
+    }
 
-function handleNoClick() {
-	if (card.allowReply && !replySuccess) {
-		validationError = "Please send your reply first! ❤️";
-		return;
-	}
-	validationError = null;
-	onNo?.();
-}
+    function handleNoClick() {
+        if (card.allowReply && !replySuccess) {
+            validationError = "Please send your reply first! ❤️";
+            return;
+        }
+        validationError = null;
+        onNo?.();
+    }
 
-const themeClasses = {
-	romantic: "border-vivid-pink !bg-white/30 font-romantic",
-	playful: "border-blue-400 !bg-blue-50/50 font-playful",
-	elegant: "border-silver-grey !bg-purple-50/40 font-elegant",
-};
+    const themeClasses = {
+        romantic: "border-vivid-pink !bg-white/30 font-romantic",
+        playful: "border-blue-400 !bg-blue-50/50 font-playful",
+        elegant: "border-silver-grey !bg-purple-50/40 font-elegant",
+    };
 </script>
 
 <div
+    transition:scale={{ duration: 400, start: 0.9 }}
     class="glass max-w-lg w-full p-8 rounded-3xl text-center flex flex-col gap-6 relative z-10 {themeClasses[
         card.theme
     ]}"
@@ -101,7 +103,7 @@ const themeClasses = {
                     onclick={handleYesClick}
                     disabled={previewMode}
                     style="transform: scale({yesButtonScale})"
-                    class="bg-vivid-pink text-white font-bold py-3 px-8 rounded-full skeuo-button z-20 disabled:opacity-50 disabled:cursor-not-allowed"
+                    class="bg-vivid-pink text-white font-bold py-3 px-8 rounded-full skeuo-button z-20 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-110"
                 >
                     {card.useCustomButtons ? card.button1Text : "Yes!"}
                 </button>
@@ -134,7 +136,7 @@ const themeClasses = {
                 >
                     Leave a message back
                 </label>
-                {#if replySuccess || card.status === "replied"}
+                {#if replySuccess}
                     <p
                         class="text-sm text-green-600 font-medium animate-fade-in"
                     >
@@ -149,14 +151,14 @@ const themeClasses = {
                             placeholder={previewMode
                                 ? "Receiver will type here..."
                                 : "Type your reply here..."}
-                            class="p-3 rounded-xl bg-white/50 border border-vivid-pink/20 focus:border-vivid-pink outline-none text-sm min-h-20 transition-all"
+                            class="p-3 rounded-xl bg-white/50 border border-vivid-pink/20 focus:border-vivid-pink outline-none text-sm min-h-20 transition-all focus:scale-[1.01] focus:shadow-md"
                         ></textarea>
                         <button
                             onclick={onReplySubmit}
                             disabled={previewMode ||
                                 replySubmitting ||
                                 !replyText.trim()}
-                            class="bg-vivid-pink/10 text-vivid-pink font-bold py-2 rounded-xl hover:bg-vivid-pink/20 transition-colors disabled:opacity-30 text-sm"
+                            class="bg-vivid-pink/10 text-vivid-pink font-bold py-2 rounded-xl hover:bg-vivid-pink/20 transition-all disabled:opacity-30 text-sm hover:scale-[1.02] active:scale-95"
                         >
                             {replySubmitting ? "Sending..." : "Send Reply"}
                         </button>
