@@ -23,10 +23,16 @@
     }
   });
 
-  // Enforce exclusion logic: Custom Choice Buttons vs Hide Choice Buttons
+  // Enforce mutual exclusivity: Custom Choice Buttons vs Hide Choice Buttons
   $effect(() => {
     if (form.useCustomButtons) {
       form.hideButtons = false;
+    }
+  });
+
+  $effect(() => {
+    if (form.hideButtons) {
+      form.useCustomButtons = false;
     }
   });
 
@@ -165,7 +171,11 @@
         />
       </div>
 
-      <div class="flex items-center justify-between">
+      <div
+        class="flex items-center justify-between transition-opacity {form.hideButtons
+          ? 'opacity-40 pointer-events-none'
+          : 'opacity-100'}"
+      >
         <label
           for="useCustomButtons"
           class="text-sm font-bold text-deep-raspberry cursor-pointer"
@@ -175,6 +185,7 @@
           type="checkbox"
           id="useCustomButtons"
           bind:checked={form.useCustomButtons}
+          disabled={form.hideButtons}
           class="w-5 h-5 accent-vivid-pink cursor-pointer"
         />
       </div>

@@ -11,37 +11,59 @@ import { CreateCardFormState } from "../lib/create-card.svelte";
 
 class ComponentSimulation {
     form: CreateCardFormState;
+    private lastUseCustomButtons = false;
+    private lastHideButtons = false;
 
     constructor() {
         this.form = new CreateCardFormState();
     }
 
-    // Simulate Svelte $effect
+    // Simulate Svelte $effect that reacts to changes
     runExclusionEffect() {
-        if (this.form.useCustomButtons) {
+        if (this.form.useCustomButtons && this.form.useCustomButtons !== this.lastUseCustomButtons) {
             this.form.hideButtons = false;
+        } else if (this.form.hideButtons && this.form.hideButtons !== this.lastHideButtons) {
+            this.form.useCustomButtons = false;
         }
+        this.lastUseCustomButtons = this.form.useCustomButtons;
+        this.lastHideButtons = this.form.hideButtons;
     }
 }
 
 describe("CreateCardForm Exclusion Logic", () => {
-    it("should uncheck hideButtons when useCustomButtons is true", () => {
+    it("should uncheck hideButtons when useCustomButtons is checked", () => {
         const component = new ComponentSimulation();
         const form = component.form;
         
-        // Initial state
-        expect(form.useCustomButtons).toBe(false);
-        expect(form.hideButtons).toBe(false);
-
-        // User checks hideButtons first
+        // Check hideButtons first
         form.hideButtons = true;
+        component.runExclusionEffect();
         expect(form.hideButtons).toBe(true);
+        expect(form.useCustomButtons).toBe(false);
 
-        // User then checks useCustomButtons
+        // Then check useCustomButtons
         form.useCustomButtons = true;
-        component.runExclusionEffect(); // Simulate effect run
+        component.runExclusionEffect();
         
-        // EXPECTATION: hideButtons should be forced to false
         expect(form.hideButtons).toBe(false);
+        expect(form.useCustomButtons).toBe(true);
+    });
+
+    it("should uncheck useCustomButtons when hideButtons is checked", () => {
+        const component = new ComponentSimulation();
+        const form = component.form;
+        
+        // Check useCustomButtons first
+        form.useCustomButtons = true;
+        component.runExclusionEffect();
+        expect(form.useCustomButtons).toBe(true);
+        expect(form.hideButtons).toBe(false);
+
+        // Then check hideButtons
+        form.hideButtons = true;
+        component.runExclusionEffect();
+        
+        expect(form.useCustomButtons).toBe(false);
+        expect(form.hideButtons).toBe(true);
     });
 });
