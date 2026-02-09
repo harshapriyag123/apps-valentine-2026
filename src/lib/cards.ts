@@ -20,7 +20,7 @@ export interface Card {
 	receiver: string;
 	message: string;
 	theme: "romantic" | "playful" | "elegant";
-	status: "sent" | "viewed" | "accepted" | "declined";
+	status: "sent" | "viewed" | "accepted" | "declined" | "replied";
 	useCustomButtons?: boolean;
 	button1Text?: string;
 	button2Text?: string;
