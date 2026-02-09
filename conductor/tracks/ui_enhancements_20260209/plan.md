@@ -8,7 +8,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Dashboard Preview Readability' (Protocol in workflow.md) b881d49
 
 ## Phase 2: Card Creation Form Logic
-- [x] Task: Implement Custom Choice vs. Hide Button exclusion logic 10ece76
+- [x] Task: Implement Custom Choice vs. Hide Button exclusion logic ae0578c
     - [ ] Write failing test in `src/components/CreateCardForm.repro.test.ts` to ensure that selecting "Custom Choice Buttons" automatically unchecks and disables "Hide Choice Button".
     - [ ] Update `src/components/CreateCardForm.svelte` using Svelte runes (`$derived` or `$effect`) to enforce the exclusion logic.
     - [ ] Ensure the checkbox state is correctly synced with the card submission data.
