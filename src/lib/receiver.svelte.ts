@@ -55,6 +55,11 @@ export class ReceiverViewLogic {
         replyText: this.replyText,
         updatedAt: serverTimestamp()
       });
+
+      if (this.card?.hideButtons) {
+        await updateCardStatus(this.id, 'replied');
+      }
+
       this.replySuccess = true;
       this.replyText = '';
     } catch (err) {
