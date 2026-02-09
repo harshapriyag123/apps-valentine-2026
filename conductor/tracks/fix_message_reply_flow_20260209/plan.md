@@ -20,7 +20,7 @@ This plan outlines the steps to introduce a new `replied` status for cards witho
     - [ ] Run tests and verify they pass (Green Phase).
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Receiver Logic & TDD' (Protocol in workflow.md)
 
-## Phase 3: UI Updates (Receiver & Sender)
+## Phase 3: UI Updates (Receiver & Sender) [checkpoint: f9378c9]
 - [x] Task: Update `CardDisplay.svelte` for `replied` status <!-- cd44641 -->
     - [ ] Ensure the component handles the `replied` state similarly to `accepted` or `declined` if necessary, or simply relies on `replySuccess` for the message.
     - [ ] Verify that the "replied" success message is shown and inputs are disabled when status is `replied`.
