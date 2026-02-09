@@ -75,15 +75,15 @@
   {:else}
     <div class="flex flex-col gap-2">
       <span
-        class="text-vivid-pink font-medium tracking-widest uppercase text-sm"
+        class="text-vivid-pink font-medium tracking-widest uppercase text-lg"
         >To: {card.receiver}</span
       >
-      <h1 class="text-4xl font-bold text-deep-raspberry">
+      <h1 class="text-5xl font-bold text-deep-raspberry">
         Will you be my Valentine?
       </h1>
     </div>
 
-    <p class="text-lg text-deep-raspberry/80 italic leading-relaxed py-4">
+    <p class="text-2xl text-deep-raspberry/80 italic leading-relaxed py-4">
       "{card.message}"
     </p>
 
@@ -151,6 +151,6 @@
       </div>
     {/if}
 
-    <span class="text-xs text-deep-raspberry/40 mt-4">From: {card.sender}</span>
+    <span class="text-sm text-deep-raspberry/40 mt-4">From: {card.sender}</span>
   {/if}
 </div>
