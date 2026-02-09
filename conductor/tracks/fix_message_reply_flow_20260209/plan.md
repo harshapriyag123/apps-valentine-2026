@@ -2,7 +2,7 @@
 
 This plan outlines the steps to introduce a new `replied` status for cards without interactive buttons, ensuring the flow is correctly closed for receivers and reflected for senders.
 
-## Phase 1: Foundation & Types
+## Phase 1: Foundation & Types [checkpoint: 67f6735]
 - [x] Task: Update `Card` interface and types <!-- 3561db2 -->
     - [ ] Add `replied` to the `status` union in `src/lib/cards.ts`.
     - [ ] Update `updateCardStatus` if necessary (though it uses the type union).
