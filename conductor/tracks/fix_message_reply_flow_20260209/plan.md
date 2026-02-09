@@ -29,8 +29,8 @@ This plan outlines the steps to introduce a new `replied` status for cards witho
     - [ ] Ensure "Replied" badge or text appears correctly in the card list.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: UI Updates' (Protocol in workflow.md)
 
-## Phase 4: Final Integration & Cleanup
-- [ ] Task: Verify end-to-end flow
+## Phase 4: Final Integration & Cleanup [checkpoint: 59ee266]
+- [x] Task: Verify end-to-end flow <!-- 21ff242 -->
     - [ ] Create a "Message only" card.
     - [ ] Access it as receiver.
     - [ ] Submit reply.
