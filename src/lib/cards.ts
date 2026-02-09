@@ -7,9 +7,9 @@ import {
 	onSnapshot,
 	query,
 	serverTimestamp,
-	where,
 	type Timestamp,
 	updateDoc,
+	where,
 } from "firebase/firestore";
 import { db } from "./firebase";
 
@@ -37,7 +37,10 @@ export async function createCard(
 	const cardsCol = collection(db, "cards");
 
 	// Check if a card already exists for this user
-	const q = query(cardsCol, where("senderUsername", "==", cardData.senderUsername));
+	const q = query(
+		cardsCol,
+		where("senderUsername", "==", cardData.senderUsername),
+	);
 	const querySnapshot = await getDocs(q);
 
 	if (!querySnapshot.empty) {
