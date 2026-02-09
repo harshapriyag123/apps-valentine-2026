@@ -8,13 +8,13 @@
     - [x] Implement the randomizer function to return one of the three defined animation types. 21743a8
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Animation Utilities & Accessibility' (Protocol in workflow.md) 8a03cca
 
-## Phase 2: Reactive Card Preview (Svelte Motion) [checkpoint: f60b288]
+## Phase 2: Reactive Card Preview (Svelte Motion)
 - [x] Task: Implement layout morphing in `CardDisplay.svelte`. d4af7be
     - [x] Write failing tests for component reactivity and layout changes (verify no layout jumps). d4af7be
     - [x] Wrap `CardDisplay` elements in `motion.div` from `svelte-motion`. d4af7be
     - [x] Implement `layout` prop on motion components to enable automatic layout projections. d4af7be
     - [x] Add `AnimatePresence` for fading in/out dynamic content (like optional text fields). d4af7be
-- [x] Task: Conductor - User Manual Verification 'Phase 2: Reactive Card Preview' (Protocol in workflow.md) f60b288
+- [~] Task: Conductor - User Manual Verification 'Phase 2: Reactive Card Preview' (Protocol in workflow.md)
 
 ## Phase 3: Ethereal Modals
 - [ ] Task: Update Modals with floating and transition effects.
