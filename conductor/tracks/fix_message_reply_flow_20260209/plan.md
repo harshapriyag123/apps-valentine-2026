@@ -9,7 +9,7 @@ This plan outlines the steps to introduce a new `replied` status for cards witho
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation & Types' (Protocol in workflow.md)
 
 ## Phase 2: Receiver Logic & TDD
-- [ ] Task: TDD - Test `replied` status transition in `ReceiverViewLogic`
+- [~] Task: TDD - Test `replied` status transition in `ReceiverViewLogic`
     - [ ] Create/Update `src/lib/receiver.test.ts` (or equivalent).
     - [ ] Write a test: Submitting a reply when `hideButtons` is `true` should update status to `replied`.
     - [ ] Write a test: Submitting a reply when `hideButtons` is `false` should NOT change the status (remain `viewed`).
