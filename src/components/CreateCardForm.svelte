@@ -3,6 +3,7 @@
   import type { AuthState } from "../lib/auth.svelte";
   import { CreateCardFormState } from "../lib/create-card.svelte";
   import CardDisplay from "./CardDisplay.svelte";
+  import ConfirmModal from "./ConfirmModal.svelte";
 
   interface Props {
     authState: AuthState;
@@ -38,6 +39,21 @@
 
   // Tab state for mobile
   let activeTab = $state<"edit" | "preview">("edit");
+  let showConfirmModal = $state(false);
+
+  function handleSubmitRequest(e?: Event) {
+    if (e) e.preventDefault();
+    if (!form.isValid) {
+      form.error = "Please fill in all fields.";
+      return;
+    }
+    showConfirmModal = true;
+  }
+
+  async function handleConfirmSubmit() {
+    showConfirmModal = false;
+    await form.submit();
+  }
 
   let previewCard = $derived({
     sender: form.sender,
@@ -83,10 +99,7 @@
 
   <!-- Form Section -->
   <form
-    onsubmit={async (e) => {
-      e.preventDefault();
-      await form.submit();
-    }}
+    onsubmit={handleSubmitRequest}
     class="glass p-8 rounded-2xl flex flex-col gap-4 max-w-md w-full {activeTab ===
     'edit'
       ? 'flex'
@@ -283,7 +296,7 @@
     class="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 z-50"
   >
     <button
-      onclick={() => form.submit()}
+      onclick={() => handleSubmitRequest()}
       disabled={form.submitting}
       class="w-full bg-vivid-pink text-white font-bold py-4 rounded-2xl skeuo-button shadow-lg disabled:opacity-50"
     >
@@ -291,3 +304,13 @@
     </button>
   </div>
 </div>
+
+<ConfirmModal
+  isOpen={showConfirmModal}
+  title="Send Your Love? ❤️"
+  message="You can only craft one message per account. Are you sure you want to send this?"
+  confirmLabel="Yes, Send it!"
+  cancelLabel="Not yet"
+  onConfirm={handleConfirmSubmit}
+  onCancel={() => (showConfirmModal = false)}
+/>
