@@ -1,8 +1,0 @@
-{
-  "track_id": "cinematic_animations_20260209",
-  "type": "feature",
-  "status": "new",
-  "created_at": "2026-02-09T10:00:00Z",
-  "updated_at": "2026-02-09T10:00:00Z",
-  "description": "Add cinematic animations for page transitions, preview updates, modals, and card sending flow."
-}
