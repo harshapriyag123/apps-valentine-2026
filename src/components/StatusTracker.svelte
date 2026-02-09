@@ -19,6 +19,7 @@
     viewed: "text-blue-500",
     accepted: "text-green-500 font-bold",
     declined: "text-red-500",
+    replied: "text-purple-600 font-bold",
   };
 
   // Reply Toggle State
