@@ -72,6 +72,12 @@
     <h1 class="text-3xl font-bold text-gray-700">Oh no... 💔</h1>
     <p class="text-lg text-gray-600">Maybe next time, {card.sender}?</p>
     <div class="text-6xl mt-4">😢🥀</div>
+  {:else if card.status === "replied"}
+    <h1 class="text-4xl font-bold text-vivid-pink animate-pulse">
+      Replied! 💌
+    </h1>
+    <p class="text-xl text-deep-raspberry">Message sent to {card.sender}!</p>
+    <div class="text-6xl mt-4">📨✨</div>
   {:else}
     <div class="flex flex-col gap-2">
       <span
@@ -124,7 +130,7 @@
         >
           Leave a message back
         </label>
-        {#if replySuccess}
+        {#if replySuccess || card.status === "replied"}
           <p class="text-sm text-green-600 font-medium animate-fade-in">
             💖 Message sent to {card.sender}!
           </p>
