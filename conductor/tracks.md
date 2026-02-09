@@ -8,8 +8,3 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Implement lightweight authentication and a private sender dashboard where users only see their own cards.**
 *Link: [./tracks/fix_send_love_button_20260130/](./tracks/fix_send_love_button_20260130/)*
-
----
-
-- [x] **Track: Fix card creation failure when "Hide Choice Button" is enabled.**
-*Link: [./tracks/fix_card_creation_hidden_buttons_20260209/](./tracks/fix_card_creation_hidden_buttons_20260209/)*
