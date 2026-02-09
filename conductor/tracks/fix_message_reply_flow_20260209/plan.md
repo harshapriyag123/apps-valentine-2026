@@ -8,7 +8,7 @@ This plan outlines the steps to introduce a new `replied` status for cards witho
     - [ ] Update `updateCardStatus` if necessary (though it uses the type union).
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation & Types' (Protocol in workflow.md)
 
-## Phase 2: Receiver Logic & TDD
+## Phase 2: Receiver Logic & TDD [checkpoint: db28263]
 - [x] Task: TDD - Test `replied` status transition in `ReceiverViewLogic` <!-- bf6cfac -->
     - [ ] Create/Update `src/lib/receiver.test.ts` (or equivalent).
     - [ ] Write a test: Submitting a reply when `hideButtons` is `true` should update status to `replied`.
