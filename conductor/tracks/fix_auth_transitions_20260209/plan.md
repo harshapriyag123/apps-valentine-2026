@@ -17,7 +17,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Implementation' (Protocol in workflow.md)
 
 ## Phase 3: Verification & Polish
-- [ ] Task: Verify Animations on Mobile
+- [~] Task: Verify Animations on Mobile
     - [ ] Check for overflow issues
     - [ ] Adjust transition duration/easing if needed for touch devices
 - [ ] Task: Run final regression tests

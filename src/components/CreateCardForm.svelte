@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Timestamp } from "firebase/firestore";
-  import { fly, fade } from "svelte/transition";
-  import { Motion } from "svelte-motion";
+  import { fly } from "svelte/transition";
   import type { AuthState } from "../lib/auth.svelte";
   import { CreateCardFormState } from "../lib/create-card.svelte";
   import { uiState } from "../lib/ui.svelte";
