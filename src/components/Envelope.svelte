@@ -89,11 +89,12 @@
 
         <!-- Heart Seal -->
         <Motion
-            animate={open ? { opacity: 0, scale: 0, y: -20 } : { opacity: 1, scale: 1, y: 0 }}
+            initial={{ opacity: 1, scale: 1, x: 132, y: 115 }}
+            animate={open ? { opacity: 0, scale: 0, x: 132, y: 95 } : { opacity: 1, scale: 1, x: 132, y: 115 }}
             transition={{ duration: 0.4 }}
             let:motion={sealMotion}
         >
-             <g use:sealMotion transform="translate(132, 115)">
+             <g use:sealMotion>
                 <path d="M18 33.06l-.21-.09-.66-.36c-4.98-2.58-12.18-6.75-12.18-14.22 0-5.76 4.86-10.35 10.71-10.35 2.88 0 5.58 1.26 7.38 3.42 1.8-2.16 4.5-3.42 7.38-3.42 5.85 0 10.71 4.59 10.71 10.35 0 7.47-7.2 11.64-12.18 14.16l-.66.36-.21.09a2.256 2.256 0 01-2.1 0z" fill="#E11D48" stroke="#9F1239" stroke-width="1" />
                 <path d="M12 12 C12 12 10 14 10 16" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.4" />
              </g>

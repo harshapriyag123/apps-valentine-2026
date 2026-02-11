@@ -26,4 +26,12 @@ describe("Envelope Component", () => {
         // Since we use Svelte 5 props, maybe `onclick` prop
         expect(content).toContain("onclick");
     });
+
+    it("should manage heart seal position via Motion props to avoid jumping", () => {
+        const content = readFileSync(componentPath, "utf-8");
+        // Ensure we don't have a static transform on the g tag that conflicts with Motion
+        expect(content).not.toContain('<g use:sealMotion transform="translate');
+        // Ensure coordinates are in the Motion props
+        expect(content).toContain('x: 132, y: 115');
+    });
 });
