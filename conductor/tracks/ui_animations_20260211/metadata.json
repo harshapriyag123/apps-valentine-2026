@@ -1,0 +1,8 @@
+{
+  "track_id": "ui_animations_20260211",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-02-11T00:00:00Z",
+  "updated_at": "2026-02-11T00:00:00Z",
+  "description": "Add Valentine-themed cinematic transitions to CreateCardForm mobile tabs and a magical envelope unboxing experience for the receiver page."
+}
