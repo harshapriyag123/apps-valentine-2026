@@ -1,4 +1,5 @@
 import { createCard } from "./cards";
+import { uiState } from "./ui.svelte";
 
 export class CreateCardFormState {
 	sender = $state("");
@@ -89,6 +90,10 @@ export class CreateCardFormState {
 			});
 
 			this.success = id;
+
+			// Immediately open the share modal so the user sees the QR code
+			// even if the component unmounts (e.g. switching to dashboard view)
+			uiState.openShareModal(id);
 
 			this.reset();
 		} catch (err: any) {

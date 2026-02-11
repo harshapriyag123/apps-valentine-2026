@@ -1,5 +1,12 @@
 import { describe, expect, it, mock } from "bun:test";
 
+// Mock global window
+(globalThis as any).window = {
+	location: {
+		origin: "http://localhost:3000",
+	},
+};
+
 // Mock Svelte 5 runes globally BEFORE imports
 (globalThis as any).$state = (v: any) => v;
 (globalThis as any).$derived = (v: any) => v;
@@ -29,8 +36,6 @@ describe("Auto-Open Share Modal Reproduction", () => {
 		await form.submit();
 
 		// Check if share modal is open
-		// This is expected to fail currently because the logic is in the component's $effect,
-		// not in the state class's submit method.
 		expect(uiState.isShareModalOpen).toBe(true);
 		expect(uiState.shareModalUrl).toContain("test-card-id");
 	});

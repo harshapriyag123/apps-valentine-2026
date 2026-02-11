@@ -26,13 +26,6 @@
     }
   });
 
-  // Automatically open Share Modal on success
-  $effect(() => {
-    if (form.success) {
-      uiState.openShareModal(form.success);
-    }
-  });
-
   // Enforce mutual exclusivity: Custom Choice Buttons vs Hide Choice Buttons
   $effect(() => {
     if (form.useCustomButtons) {
