@@ -42,6 +42,8 @@
   
   // Default to false for SSR consistency (Mobile-first)
   let isDesktop = $state(false);
+  let showHeart = $state(false);
+  let heartTimeout: ReturnType<typeof setTimeout>;
 
   onMount(() => {
     const updateMedia = () => {
@@ -55,6 +57,19 @@
   // Derived visibility state
   let showEdit = $derived(isDesktop || activeTab === 'edit');
   let showPreview = $derived(isDesktop || activeTab === 'preview');
+
+  function triggerHeart() {
+    if (isDesktop) return;
+    showHeart = false;
+    clearTimeout(heartTimeout);
+    // Small delay to ensure DOM teardown/re-render if triggered rapidly
+    setTimeout(() => {
+        showHeart = true;
+        heartTimeout = setTimeout(() => {
+            showHeart = false;
+        }, 800); 
+    }, 50);
+  }
 
   function handleSubmitRequest(e?: Event) {
     if (e) e.preventDefault();
@@ -88,24 +103,22 @@
 </script>
 
 <!-- Heart Pulse Overlay (Mobile Only Trigger) -->
-{#key activeTab}
-  <div
-    class="heart-pulse-overlay pointer-events-none fixed inset-0 flex items-center justify-center z-50"
-    data-testid="heart-pulse-overlay"
-  >
-    {#if !isDesktop}
-        <div 
-          class="text-vivid-pink/40"
-          in:scale={{ duration: 600, start: 0.5, opacity: 0 }}
-          out:fade={{ duration: 200 }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-48 h-48 drop-shadow-2xl filter blur-sm">
-            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
-          </svg>
-        </div>
-    {/if}
-  </div>
-{/key}
+<div
+  class="heart-pulse-overlay pointer-events-none fixed inset-0 flex items-center justify-center z-50"
+  data-testid="heart-pulse-overlay"
+>
+  {#if !isDesktop && showHeart}
+      <div 
+        class="text-vivid-pink/40"
+        in:scale={{ duration: 600, start: 0.5, opacity: 0 }}
+        out:fade={{ duration: 200 }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-48 h-48 drop-shadow-2xl filter blur-sm">
+          <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+        </svg>
+      </div>
+  {/if}
+</div>
 
 <div
   class="flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center max-w-6xl mx-auto w-full px-4 pt-4 pb-8"
@@ -117,7 +130,7 @@
     transition:fly={{ y: -20, duration: 300 }}
   >
     <button
-      onclick={() => (activeTab = "edit")}
+      onclick={() => { activeTab = "edit"; triggerHeart(); }}
       class="flex-1 py-2 text-sm font-bold rounded-lg transition-all hover:scale-105 active:scale-95 {activeTab ===
       'edit'
         ? 'bg-white text-vivid-pink shadow-sm'
@@ -126,7 +139,7 @@
       Edit
     </button>
     <button
-      onclick={() => (activeTab = "preview")}
+      onclick={() => { activeTab = "preview"; triggerHeart(); }}
       class="flex-1 py-2 text-sm font-bold rounded-lg transition-all hover:scale-105 active:scale-95 {activeTab ===
       'preview'
         ? 'bg-white text-vivid-pink shadow-sm'
