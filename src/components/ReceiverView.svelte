@@ -99,7 +99,7 @@
 </script>
 
 <div class="flex flex-col items-center justify-center min-h-screen">
-  <AnimatePresence let:item list={isOpen ? [{key: 'card'}] : [{key: 'envelope'}]}>
+  <AnimatePresence let:item list={isOpen ? [{key: 'card'}] : [{key: 'envelope'}]} exitBeforeEnter>
     {#if !isOpen}
       <Motion
         initial={{ opacity: 0, scale: 0.8 }}
