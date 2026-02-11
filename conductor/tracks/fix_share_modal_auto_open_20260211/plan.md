@@ -17,10 +17,10 @@
     - [x] Remove the success-tracking `$effect` from `src/components/CreateCardForm.svelte` to avoid duplicate calls or lifecycle issues
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Implementation' (Protocol in workflow.md)
 
-## Phase 3: Verification & Polish
-- [ ] Task: Verify fix with automated tests
-    - [ ] Run `bun test src/components/AutoOpenShareModal.repro.test.ts`
-    - [ ] Ensure all tests pass
-- [ ] Task: Regression test for manual share button
-    - [ ] Ensure clicking "Share" in `StatusTracker.svelte` still works as expected
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Verification & Polish' (Protocol in workflow.md)
+## Phase 3: Verification & Polish [checkpoint: 0380af6]
+- [x] Task: Verify fix with automated tests
+    - [x] Run `bun test src/components/AutoOpenShareModal.repro.test.ts`
+    - [x] Ensure all tests pass
+- [x] Task: Regression test for manual share button
+    - [x] Ensure clicking "Share" in `StatusTracker.svelte` still works as expected
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Verification & Polish' (Protocol in workflow.md)
