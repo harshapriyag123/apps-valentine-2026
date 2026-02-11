@@ -60,7 +60,7 @@
 
 <div
   transition:scale={{ duration: 400, start: 0.9 }}
-  class="glass max-w-lg w-full p-8 rounded-3xl text-center flex flex-col gap-6 relative z-10 {themeClasses[
+  class="glass max-w-lg w-full p-8 rounded-3xl text-center flex flex-col relative z-10 {themeClasses[
     card.theme
   ]}"
 >
@@ -84,22 +84,27 @@
     <div class="text-6xl mt-4">📨✨</div>
   {:else}
     <div class="flex flex-col gap-2">
-      <span
-        class="text-vivid-pink font-medium tracking-widest uppercase text-lg"
-        >To: {card.receiver}</span
+      <span class="text-vivid-pink font-medium tracking-widest text-3xl">
+        To: {card.receiver}
+      </span>
+      <!-- <div
+        class="flex flex-col items-center justify-center text-vivid-pink font-medium tracking-widest text-3xl"
       >
-      <h1 class="text-5xl font-bold text-deep-raspberry">
+        <span>To:</span>
+        <span>{card.receiver}</span>
+      </div> -->
+      <h1 class="my-4 text-5xl font-bold text-deep-raspberry">
         Will you be my Valentine?
       </h1>
     </div>
 
-    <p class="text-2xl text-deep-raspberry/80 italic leading-relaxed py-4">
+    <p class="text-2xl text-deep-raspberry/80 italic leading-relaxed">
       "{card.message}"
     </p>
 
     {#if !card.hideButtons}
       <div
-        class="flex justify-center gap-6 mt-4 items-center h-20"
+        class="flex justify-center gap-6 items-center h-20"
         in:scale={{ duration: 400, start: 0.5, opacity: 0 }}
         out:scale={{ duration: 300, start: 0.5, opacity: 0 }}
       >
@@ -132,7 +137,7 @@
 
     {#if card.allowReply}
       <div
-        class="mt-8 pt-6 border-t border-vivid-pink/10 flex flex-col gap-3"
+        class="mt-4 pt-6 border-t border-vivid-pink/10 flex flex-col gap-3"
         in:fly={{ y: 30, duration: 500, opacity: 0 }}
         out:fly={{ y: -20, duration: 300, opacity: 0 }}
       >
@@ -169,6 +174,7 @@
       </div>
     {/if}
 
-    <span class="text-sm text-deep-raspberry/40 mt-4">From: {card.sender}</span>
+    <span class="text-3xl text-deep-raspberry/40 mt-2">From: {card.sender}</span
+    >
   {/if}
 </div>

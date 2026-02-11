@@ -45,7 +45,7 @@
 >
   <main
     use:motion
-    class="max-w-4xl mx-auto min-h-screen flex flex-col justify-center py-12"
+    class="max-w-4xl mx-auto min-h-screen flex flex-col justify-center py-12 overflow-x-hidden"
   >
     <Motion variants={itemVariants} let:motion>
       <h1
@@ -105,11 +105,13 @@
           </Motion>
         {/if}
 
-        <Motion variants={itemVariants} let:motion>
-          <div use:motion>
-            <StatusTracker {authState} />
-          </div>
-        </Motion>
+        {#if dashboard?.hasCard}
+          <Motion variants={itemVariants} let:motion>
+            <div use:motion>
+              <StatusTracker {authState} />
+            </div>
+          </Motion>
+        {/if}
       {/if}
     </div>
   </main>

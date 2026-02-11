@@ -83,7 +83,7 @@
 </script>
 
 <div
-  class="flex flex-col lg:flex-row gap-8 items-start justify-center max-w-6xl mx-auto w-full px-4 pt-4 pb-8"
+  class="flex flex-col lg:flex-row gap-8 items-center justify-center max-w-6xl mx-auto w-full px-4 pt-4 pb-8"
 >
   <!-- Mobile Tabs Toggle -->
   <div
@@ -300,7 +300,7 @@
       : 'hidden lg:flex'}"
   >
     <h3
-      class="hidden lg:block text-xl font-bold text-deep-raspberry/60 px-2 uppercase tracking-widest text-sm"
+      class="hidden lg:block text-xl font-bold text-deep-raspberry/60 px-2 uppercase tracking-widest"
     >
       Live Preview
     </h3>
