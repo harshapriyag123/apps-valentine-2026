@@ -31,7 +31,7 @@ Create a romantic "unboxing" experience for the recipient before they see the ac
     - Phase 3: Envelope fades out as the card reaches full scale.
 - [x] Task: Write unit tests in `src/components/ReceiverView.animation.test.ts`. [a4269d8]
     - Verify that clicking the envelope correctly initiates the opening sequence and ultimately shows the card.
-- [~] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md) [checkpoint: 587902e]
 
 ## Phase 3: Polishing & Performance
 
