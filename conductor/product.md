@@ -17,7 +17,7 @@ A modern, delightful, and romantic Progressive Web App (PWA) designed to let use
 - **Lightweight Authentication:** A simple, password-less login and signup flow using only usernames.
 - **Single Card Limit:** Emphasizing the "one special person" concept by restricting each account to creating exactly one unique card.
 - **Customizable Interactions:** Senders can personalize the interactive buttons (e.g., custom "Yes/No" labels) or enable a **Text Reply** feature for receivers.
-- **Interactive Receiver View:** A dedicated page for the recipient featuring interactive elements, including custom buttons and a personal message response form.
+- **Interactive Receiver View:** A dedicated page for the recipient featuring a magical "envelope unboxing" experience, interactive elements, custom buttons, and a personal message response form.
 - **Response Inbox:** A private dashboard where senders can monitor card status and read heartfelt text replies from their receivers in real-time.
 - **QR Code Sharing:** Instant generation of unique scannable QR codes and shareable links for easy distribution.
 
