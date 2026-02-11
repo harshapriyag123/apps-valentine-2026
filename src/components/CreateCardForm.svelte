@@ -106,7 +106,7 @@
   <!-- Form Section -->
   <form
     onsubmit={handleSubmitRequest}
-    class="glass p-8 rounded-2xl flex flex-col gap-4 max-w-md w-full {activeTab ===
+    class="glass p-8 rounded-2xl flex flex-col gap-4 max-w-md w-full mb-16 lg:mb-0 {activeTab ===
     'edit'
       ? 'flex'
       : 'hidden lg:flex'}"

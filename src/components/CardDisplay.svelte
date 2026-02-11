@@ -68,7 +68,9 @@
     <h1 class="text-4xl font-bold text-deep-raspberry animate-heartbeat">
       YAY! ❤️
     </h1>
-    <p class="text-xl text-deep-raspberry">I'm so happy, {card.sender}!</p>
+    <p class="text-2xl mt-8 mb-4 text-deep-raspberry">
+      I'm so happy, {card.sender}!
+    </p>
     <div class="text-6xl mt-4">🥰🌹✨</div>
   {:else if card.status === "declined"}
     <h1 class="text-3xl font-bold text-gray-700">Oh no... 💔</h1>
@@ -129,7 +131,7 @@
       </div>
 
       {#if validationError}
-        <p class="text-xs text-vivid-pink font-bold animate-shake">
+        <p class="text-lg text-vivid-pink font-bold animate-shake">
           {validationError}
         </p>
       {/if}
@@ -141,14 +143,16 @@
         in:fly={{ y: 30, duration: 500, opacity: 0 }}
         out:fly={{ y: -20, duration: 300, opacity: 0 }}
       >
-        <label
-          for="reply"
-          class="text-xs font-bold text-deep-raspberry/60 uppercase tracking-widest"
-        >
-          Leave a message back
-        </label>
+        {#if !replySuccess}
+          <label
+            for="reply"
+            class="text-lg font-bold text-deep-raspberry/60 tracking-widest"
+          >
+            Leave a message back
+          </label>
+        {/if}
         {#if replySuccess}
-          <p class="text-sm text-green-600 font-medium animate-fade-in">
+          <p class="text-lg text-green-600 font-medium animate-fade-in">
             💖 Message sent to {card.sender}!
           </p>
         {:else}
@@ -160,7 +164,7 @@
               placeholder={previewMode
                 ? "Receiver will type here..."
                 : "Type your reply here..."}
-              class="p-3 rounded-xl bg-white/50 border border-vivid-pink/20 focus:border-vivid-pink outline-none text-sm min-h-20 transition-all focus:scale-[1.01] focus:shadow-md"
+              class="p-3 rounded-xl bg-white/50 border border-vivid-pink/20 focus:border-vivid-pink outline-none text-lg text-black/80 min-h-20 transition-all focus:scale-[1.01] focus:shadow-md"
             ></textarea>
             <button
               onclick={onReplySubmit}
