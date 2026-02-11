@@ -19,7 +19,7 @@ Improve the mobile experience by adding themed transitions between the Edit and 
 
 Create a romantic "unboxing" experience for the recipient before they see the actual card.
 
-- [ ] Task: Create the `src/components/Envelope.svelte` component.
+- [x] Task: Create the `src/components/Envelope.svelte` component. [44cdaab]
     - Implement a closed envelope UI using CSS/SVG.
     - Use `svelte-motion` to add a "Hover Wiggle" effect (physics-based jitter).
 - [ ] Task: Update `ReceiverView.svelte` to manage the unboxing state.
