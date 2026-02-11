@@ -45,7 +45,9 @@
 >
   <main
     use:motion
-    class="max-w-4xl mx-auto min-h-screen flex flex-col justify-center py-12 overflow-x-hidden"
+    class="max-w-4xl mx-auto min-h-screen flex flex-col {authState.user
+      ? 'justify-start'
+      : 'justify-center'} lg:justify-center py-12 overflow-x-hidden"
   >
     <Motion variants={itemVariants} let:motion>
       <h1
