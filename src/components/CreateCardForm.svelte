@@ -302,7 +302,7 @@
     <h3
       class="hidden lg:block text-xl font-bold text-deep-raspberry/60 px-2 uppercase tracking-widest"
     >
-      Live Preview
+      Preview
     </h3>
     <div>
       <CardDisplay card={previewCard} previewMode={true} />

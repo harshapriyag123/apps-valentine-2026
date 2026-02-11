@@ -85,7 +85,7 @@
   {:else}
     <div class="flex flex-col gap-2">
       <span class="text-vivid-pink font-medium tracking-widest text-3xl">
-        To: {card.receiver}
+        To: {card.receiver || "<Your Valentine>"}
       </span>
       <!-- <div
         class="flex flex-col items-center justify-center text-vivid-pink font-medium tracking-widest text-3xl"
@@ -99,7 +99,7 @@
     </div>
 
     <p class="text-2xl text-deep-raspberry/80 italic leading-relaxed">
-      "{card.message}"
+      "{card.message || "<Your message here>"}"
     </p>
 
     {#if !card.hideButtons}
