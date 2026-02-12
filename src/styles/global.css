@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Dancing+Script:wght@400..700&family=Oooh+Baby&family=Licorice&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Dancing+Script:wght@400..700&family=Oooh+Baby&family=Licorice&family=Tangerine:wght@400;700&display=swap");
 
 @import "tailwindcss";
 
@@ -8,6 +8,7 @@
 	--color-deep-raspberry: #872657;
 	--color-silver-grey: #c0c0c0;
 
+	--font-title: "Tangerine", cursive;
 	--font-romantic: "Licorice", cursive;
 	--font-playful: "Oooh Baby", cursive;
 	--font-elegant: "Dancing Script", cursive;

@@ -10,6 +10,8 @@ export class CreateCardFormState {
 
 	message = $state("");
 
+	title = $state("Will you be my Valentine?");
+
 	theme = $state<"romantic" | "playful" | "elegant">("romantic");
 
 	// New Features
@@ -41,6 +43,7 @@ export class CreateCardFormState {
 			this.sender.trim() !== "" &&
 			this.receiver.trim() !== "" &&
 			this.message.trim() !== "" &&
+			this.title.trim() !== "" &&
 			(!this.useCustomButtons ||
 				(this.button1Text.trim() !== "" && this.button2Text.trim() !== "")) &&
 			(!this.hideButtons || this.allowReply)
@@ -69,6 +72,8 @@ export class CreateCardFormState {
 				receiver: this.receiver,
 
 				message: this.message,
+
+				title: this.title,
 
 				theme: this.theme,
 
@@ -109,6 +114,8 @@ export class CreateCardFormState {
 		this.receiver = "";
 
 		this.message = "";
+
+		this.title = "Will you be my Valentine?";
 
 		this.theme = "romantic";
 

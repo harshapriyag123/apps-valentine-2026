@@ -52,7 +52,7 @@
     <Motion variants={itemVariants} let:motion>
       <h1
         use:motion
-        class="text-deep-raspberry text-5xl font-bold text-center mb-12 animate-heartbeat"
+        class="text-deep-raspberry font-title text-5xl font-bold text-center mb-12 animate-heartbeat"
       >
         Be My Valentine
       </h1>
@@ -95,7 +95,7 @@
               class="glass p-8 rounded-2xl max-w-md w-full mx-auto mb-8 text-center border-vivid-pink/30"
             >
               <p class="text-deep-raspberry font-medium">
-                💖 You have crafted your one special Valentine.
+                💖 You have crafted your special Valentine.
               </p>
             </div>
           </Motion>

@@ -19,6 +19,7 @@ export interface Card {
 	senderUsername: string;
 	receiver: string;
 	message: string;
+	title?: string;
 	theme: "romantic" | "playful" | "elegant";
 	status: "sent" | "viewed" | "accepted" | "declined" | "replied";
 	useCustomButtons?: boolean;

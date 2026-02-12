@@ -62,7 +62,7 @@
 {#key card.theme}
   <div
     in:scale={{ duration: 400, start: 0.9 }}
-    class="glass max-w-lg w-full p-8 rounded-3xl text-center grid grid-cols-1 place-items-center relative z-10 {themeClasses[
+    class="glass min-w-[min(100%,_22rem)] max-w-lg w-full p-8 rounded-3xl text-center grid grid-cols-1 place-items-center relative z-10 {themeClasses[
       card.theme
     ]}"
   >
@@ -112,7 +112,7 @@
             To: {card.receiver || "<Your Valentine>"}
           </span>
           <h1 class="my-4 text-5xl font-bold text-deep-raspberry">
-            Will you be my Valentine?
+            {card.title || "Will you be my Valentine?"}
           </h1>
         </div>
 

@@ -91,6 +91,7 @@
     senderUsername: form.senderUsername,
     receiver: form.receiver,
     message: form.message,
+    title: form.title,
     theme: form.theme,
     status: "sent" as const,
     useCustomButtons: form.useCustomButtons,
@@ -202,6 +203,19 @@
             bind:value={form.receiver}
             required
             placeholder="e.g. Juliet"
+            class="p-2 rounded-lg bg-white/50 border border-vivid-pink/30 focus:border-vivid-pink outline-none transition-all focus:scale-[1.01] focus:shadow-md"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="title" class="text-sm font-medium text-deep-raspberry"
+            >Title (Optional)</label
+          >
+          <input
+            type="text"
+            id="title"
+            bind:value={form.title}
+            placeholder="Will you be my Valentine?"
             class="p-2 rounded-lg bg-white/50 border border-vivid-pink/30 focus:border-vivid-pink outline-none transition-all focus:scale-[1.01] focus:shadow-md"
           />
         </div>
