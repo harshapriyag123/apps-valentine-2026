@@ -129,9 +129,9 @@
   };
 </script>
 
-{#key card.theme}
+{#key `${card.theme}-${card.hideButtons}-${card.allowReply}`}
   <div
-    in:scale={{ duration: 400, start: 0.9 }}
+    in:scale={{ duration: 800, start: 0.7 }}
     class="glass min-w-[min(100%,_22rem)] max-w-lg w-full p-8 rounded-3xl text-center grid grid-cols-1 place-items-center relative z-10 {themeClasses[
       card.theme
     ]}"
