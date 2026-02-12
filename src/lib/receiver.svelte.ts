@@ -7,6 +7,7 @@ export class ReceiverViewLogic {
 	card = $state<Card | null>(null);
 	noButtonPos = $state({ x: 0, y: 0 });
 	yesButtonScale = $state(1);
+	noButtonFlyCount = $state(0);
 	onAccept?: () => void;
 
 	// Reply features
@@ -33,11 +34,16 @@ export class ReceiverViewLogic {
 	}
 
 	handleNoHover() {
-		this.noButtonPos = {
-			x: (Math.random() - 0.5) * 200,
-			y: (Math.random() - 0.5) * 200,
-		};
-		this.yesButtonScale += 0.1;
+		// Limit the random fly to 5 times only
+		if (this.noButtonFlyCount < 5) {
+			this.noButtonPos = {
+				x: (Math.random() - 0.5) * 200,
+				y: (Math.random() - 0.5) * 200,
+			};
+			this.noButtonFlyCount += 1;
+			// Yes button grows on hover, but only during the first 5 fly attempts
+			this.yesButtonScale += 0.1;
+		}
 	}
 
 	async accept(replyText?: string) {
