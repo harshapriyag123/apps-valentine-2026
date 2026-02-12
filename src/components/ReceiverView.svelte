@@ -112,7 +112,7 @@
     list={isOpen ? [{ key: "card" }] : [{ key: "envelope" }]}
     exitBeforeEnter
   >
-    {#if !isOpen}
+    {#if item.key === "envelope"}
       <Motion
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -126,9 +126,15 @@
       >
         <div
           use:motion
-          class="absolute inset-0 flex items-center justify-center"
+          class="absolute inset-0 flex items-center justify-center pointer-events-none"
         >
-          <Envelope onclick={handleOpen} open={isOpening} theme={card.theme} />
+          <div class="pointer-events-auto">
+            <Envelope
+              onclick={handleOpen}
+              open={isOpening}
+              theme={card.theme}
+            />
+          </div>
         </div>
       </Motion>
     {:else}
