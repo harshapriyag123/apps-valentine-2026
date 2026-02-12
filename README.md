@@ -1,5 +1,7 @@
 # Apps - Be My Valentine ❤️
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c29c54d8-45d2-439b-b521-e8f169eca228/deploy-status)](https://app.netlify.com/projects/2026-be-my-valentine/deploys)
+
 Hey there! 👋 This is a special little app whipped up for the Valentine's Day occasion in 2026. It's designed to spread some love, connect hearts, and maybe sprinkle a little digital confetti.
 
 ## Under the Hood 🛠️
