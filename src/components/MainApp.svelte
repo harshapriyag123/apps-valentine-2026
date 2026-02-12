@@ -69,7 +69,7 @@
         <Motion variants={itemVariants} let:motion>
           <div
             use:motion
-            class="glass px-6 py-3 rounded-full flex justify-between items-center mb-4 max-w-md mx-auto w-full"
+            class="glass px-6 py-3 rounded-full flex justify-between items-center mb-4 max-w-md mx-auto w-full font-standard"
           >
             <div class="flex items-center gap-2">
               <div
@@ -92,9 +92,9 @@
           <Motion variants={itemVariants} let:motion>
             <div
               use:motion
-              class="glass p-8 rounded-2xl max-w-md w-full mx-auto mb-8 text-center border-vivid-pink/30"
+              class="glass p-4 rounded-2xl max-w-md w-full mx-auto mb-4 text-center border-vivid-pink/30 font-standard"
             >
-              <p class="text-deep-raspberry font-medium">
+              <p class="text-deep-raspberry font-lg">
                 💖 You have crafted your special Valentine.
               </p>
             </div>

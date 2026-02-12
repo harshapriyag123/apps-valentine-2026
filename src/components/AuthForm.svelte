@@ -53,14 +53,14 @@
               onsubmit={handleLogin}
               class="flex flex-col gap-4 col-start-1 row-start-1"
             >
-              <h2 class="text-2xl font-bold text-deep-raspberry">
+              <h2 class="text-2xl font-bold font-standard text-deep-raspberry">
                 Welcome Back
               </h2>
-              <p class="text-sm text-deep-raspberry/70">
+              <p class="text-sm font-standard text-deep-raspberry/70">
                 Enter your username to continue.
               </p>
 
-              <div class="flex flex-col gap-1">
+              <div class="flex flex-col gap-1 font-standard">
                 <label
                   for="username"
                   class="text-sm font-medium text-deep-raspberry"
@@ -79,7 +79,7 @@
               <button
                 type="submit"
                 disabled={authState.loading}
-                class="mt-2 bg-vivid-pink text-white font-bold py-3 rounded-xl skeuo-button disabled:opacity-50 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                class="mt-2 bg-vivid-pink text-white font-bold py-3 rounded-xl skeuo-button font-standard disabled:opacity-50 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 {authState.loading ? "Verifying..." : "Login / Join"}
               </button>

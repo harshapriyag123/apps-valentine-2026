@@ -106,7 +106,7 @@
   }
 </script>
 
-<div class="flex flex-col items-center justify-center min-h-screen">
+<div class="flex flex-col items-center justify-center min-h-screen scale-110">
   <AnimatePresence
     let:item
     list={isOpen ? [{ key: "card" }] : [{ key: "envelope" }]}

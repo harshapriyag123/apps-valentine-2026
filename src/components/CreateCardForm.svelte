@@ -174,7 +174,7 @@
     >
       <form
         onsubmit={handleSubmitRequest}
-        class="glass p-8 rounded-2xl flex flex-col gap-4 w-full mb-16 lg:mb-0"
+        class="glass p-8 rounded-2xl flex flex-col gap-4 w-full mb-16 lg:mb-0 font-standard"
       >
         <h2 class="text-2xl font-bold text-deep-raspberry mb-4">
           Create Your Valentine

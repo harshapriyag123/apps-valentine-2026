@@ -28,7 +28,7 @@ if (!card) {
 		<meta name="generator" content={Astro.generator} />
 		<title>Valentine for {card.receiver}</title>
 	</head>
-	<body class="bg-lavender-blush min-h-screen flex items-center justify-center">
+	<body class="bg-lavender-blush min-h-screen flex items-center justify-center md:overflow-hidden">
         <FloatingHearts client:load />
         <ReceiverView id={id} initialCard={card} client:load />
 	</body>

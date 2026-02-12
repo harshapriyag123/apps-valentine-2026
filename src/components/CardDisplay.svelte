@@ -88,7 +88,7 @@
           <h1 class="text-4xl font-bold text-vivid-pink animate-pulse">
             Replied! 💌
           </h1>
-          <p class="text-xl text-deep-raspberry">
+          <p class="text-2xl text-deep-raspberry">
             Message sent to {card.sender}!
           </p>
           <div class="text-6xl mt-4">📨✨</div>
@@ -96,7 +96,7 @@
 
         <button
           onclick={() => (showReview = true)}
-          class="mt-6 text-sm bg-deep-raspberry/10 text-deep-raspberry font-bold py-2 px-4 rounded-xl hover:bg-deep-raspberry/20 transition-all hover:scale-105"
+          class="mt-6 text-md bg-deep-raspberry/10 text-deep-raspberry font-bold py-2 px-4 rounded-xl hover:bg-deep-raspberry/20 transition-all hover:scale-105"
         >
           See your reply
         </button>
@@ -198,7 +198,7 @@
                   placeholder={previewMode
                     ? "Receiver will type here..."
                     : "Type your reply here..."}
-                  class="p-3 w-full rounded-xl bg-white/50 border border-vivid-pink/20 focus:border-vivid-pink outline-none text-lg text-black/80 min-h-20 transition-all focus:scale-[1.01] focus:shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+                  class="p-3 w-full rounded-xl bg-white/50 border border-vivid-pink/20 focus:border-vivid-pink outline-none text-2xl text-black/80 min-h-20 transition-all focus:scale-[1.01] focus:shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
                 ></textarea>
                 {#if !showReview}
                   <button
@@ -216,14 +216,14 @@
           </div>
         {/if}
 
-        <span class="text-3xl text-deep-raspberry/40 mt-2"
+        <span class="text-3xl text-deep-raspberry/40 my-4"
           >From: {card.sender}</span
         >
 
         {#if showReview}
           <button
             onclick={() => (showReview = false)}
-            class="mt-8 text-sm bg-black/5 text-black/60 font-bold py-2 px-6 rounded-xl hover:bg-black/10 transition-all hover:scale-105 mx-auto"
+            class="mt-2 text-sm bg-black/5 text-black/60 font-bold py-2 px-6 rounded-xl hover:bg-black/10 transition-all hover:scale-105 mx-auto"
           >
             Back
           </button>
