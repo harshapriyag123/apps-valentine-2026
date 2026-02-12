@@ -189,14 +189,27 @@
           />
         {/if}
 
-        <span class="text-3xl text-deep-raspberry/40 my-4"
+        {#if card.replyText}
+          <div
+            class="p-4 mt-6 bg-white/40 backdrop-blur-sm rounded-2xl border-2 border-vivid-pink/20 max-w-md w-full"
+          >
+            <p class="text-lg font-semibold text-deep-raspberry/60 mb-2">
+              Your message:
+            </p>
+            <p class="text-xl text-deep-raspberry/90 italic leading-relaxed">
+              "{card.replyText}"
+            </p>
+          </div>
+        {/if}
+
+        <span class="text-3xl text-deep-raspberry/40 my-2"
           >From: {card.sender}</span
         >
 
         {#if showReview}
           <button
             onclick={() => (showReview = false)}
-            class="mt-2 text-sm bg-black/5 text-black/60 font-bold py-2 px-6 rounded-xl hover:bg-black/10 transition-all hover:scale-105 mx-auto"
+            class="text-sm bg-black/5 text-black/60 font-bold py-2 px-6 rounded-xl hover:bg-black/10 transition-all hover:scale-105 mx-auto"
           >
             Back
           </button>
