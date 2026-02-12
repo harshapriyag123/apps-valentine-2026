@@ -46,7 +46,8 @@ export class ReceiverViewLogic {
 			const docRef = doc(db, "cards", this.id);
 			// biome-ignore lint/suspicious/noExplicitAny: This is for firebase updateDoc
 			const updates: Record<string, any> = {
-				status: "accepted",
+				// If hideButtons is true, status should be 'replied' not 'accepted'
+				status: this.card?.hideButtons ? "replied" : "accepted",
 				updatedAt: serverTimestamp(),
 			};
 
@@ -70,7 +71,8 @@ export class ReceiverViewLogic {
 			const docRef = doc(db, "cards", this.id);
 			// biome-ignore lint/suspicious/noExplicitAny: This is for firebase updateDoc
 			const updates: Record<string, any> = {
-				status: "declined",
+				// If hideButtons is true, status should be 'replied' not 'declined'
+				status: this.card?.hideButtons ? "replied" : "declined",
 				updatedAt: serverTimestamp(),
 			};
 

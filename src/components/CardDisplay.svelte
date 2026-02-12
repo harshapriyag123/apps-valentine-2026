@@ -45,24 +45,36 @@
   // Track if user manually triggered the message prompt (for non-preview mode)
   let userTriggeredPrompt = $state(false);
 
-  // In preview mode, follow the prop; in real mode, follow user interaction
+  // In preview mode, follow the prop;
+  // In real mode, if hideButtons is true and allowReply is true, show prompt immediately
+  // Otherwise follow user interaction
   let showMessagePrompt = $derived(
-    previewMode ? previewShowMessagePrompt : userTriggeredPrompt,
+    previewMode
+      ? previewShowMessagePrompt
+      : (card.hideButtons && card.allowReply) || userTriggeredPrompt,
   );
 
-  // Update selectedChoice reactively in preview mode
+  // Update selectedChoice reactively in preview mode or when hideButtons is active
   $effect(() => {
     if (previewMode && previewShowMessagePrompt) {
       selectedChoice = "yes";
     } else if (previewMode && !previewShowMessagePrompt) {
       selectedChoice = null;
+    } else if (
+      !previewMode &&
+      card.hideButtons &&
+      card.allowReply &&
+      !selectedChoice
+    ) {
+      // Auto-select "yes" when buttons are hidden (receiver has no choice UI)
+      selectedChoice = "yes";
     }
   });
 
   function handleYesClick() {
     validationError = null;
 
-    if (card.allowReply && !card.hideButtons) {
+    if (card.allowReply) {
       // Show message prompt after choosing Yes
       selectedChoice = "yes";
       userTriggeredPrompt = true;
@@ -75,7 +87,7 @@
   function handleNoClick() {
     validationError = null;
 
-    if (card.allowReply && !card.hideButtons) {
+    if (card.allowReply) {
       // Show message prompt after choosing No
       selectedChoice = "no";
       userTriggeredPrompt = true;
@@ -86,6 +98,14 @@
   }
 
   async function handleFinalSubmit() {
+    // Validate: if hideButtons is true, replyText is required
+    if (card.hideButtons && !replyText.trim()) {
+      validationError = "Please enter a message";
+      return;
+    }
+
+    validationError = null;
+
     if (selectedChoice === "yes") {
       await onYes?.(replyText.trim() || undefined);
     } else if (selectedChoice === "no") {
@@ -178,7 +198,7 @@
           {/if}
         {/if}
 
-        {#if card.allowReply && showMessagePrompt && !showReview}
+        {#if showMessagePrompt && !showReview}
           <CardReplyPrompt
             sender={card.sender}
             {selectedChoice}
@@ -186,6 +206,8 @@
             {replySubmitting}
             onSubmit={handleFinalSubmit}
             onBack={handleBackFromPrompt}
+            hideButtons={card.hideButtons}
+            {validationError}
           />
         {/if}
 

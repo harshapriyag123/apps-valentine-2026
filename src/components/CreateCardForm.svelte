@@ -382,8 +382,7 @@
         <CardDisplay
           card={previewCard}
           previewMode={true}
-          previewShowMessagePrompt={previewCard.allowReply &&
-            !previewCard.hideButtons}
+          previewShowMessagePrompt={previewCard.allowReply}
         />
       </div>
     </div>
