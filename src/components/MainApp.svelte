@@ -5,6 +5,7 @@
   import { uiState } from "../lib/ui.svelte";
   import AuthForm from "./AuthForm.svelte";
   import CreateCardForm from "./CreateCardForm.svelte";
+  import NotificationContainer from "./NotificationContainer.svelte";
   import ShareModal from "./ShareModal.svelte";
   import StatusTracker from "./StatusTracker.svelte";
 
@@ -116,7 +117,7 @@
         {#if dashboard?.hasCard}
           <Motion variants={itemVariants} let:motion>
             <div use:motion>
-              <StatusTracker {authState} />
+              <StatusTracker {authState} {dashboard} />
             </div>
           </Motion>
         {/if}
@@ -130,3 +131,5 @@
   isOpen={uiState.isShareModalOpen}
   onClose={() => uiState.closeShareModal()}
 />
+
+<NotificationContainer />

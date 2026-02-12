@@ -1,18 +1,14 @@
 <script lang="ts">
   import type { AuthState } from "../lib/auth.svelte";
-  import { DashboardState } from "../lib/dashboard.svelte";
+  import type { DashboardState } from "../lib/dashboard.svelte";
   import { uiState } from "../lib/ui.svelte";
 
   interface Props {
     authState: AuthState;
+    dashboard: DashboardState | null;
   }
 
-  let { authState }: Props = $props();
-
-  // Reactive dashboard state based on the current user
-  let dashboard = $derived(
-    authState.user ? new DashboardState(authState.user.username) : null,
-  );
+  let { authState, dashboard }: Props = $props();
 
   const statusColors = {
     sent: "text-gray-500",
