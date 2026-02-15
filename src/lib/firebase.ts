@@ -10,9 +10,22 @@ const firebaseConfig = {
 	appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
 };
 
+const missingConfigKeys = Object.entries(firebaseConfig)
+	.filter(([, value]) => !value)
+	.map(([key]) => key);
+
+export const isFirebaseConfigured = missingConfigKeys.length === 0;
+export const firebaseConfigErrors = missingConfigKeys;
+
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-if (import.meta.env.DEV) {
-	connectFirestoreEmulator(db, "localhost", 8080);
+const useEmulator = import.meta.env.PUBLIC_USE_FIRESTORE_EMULATOR === "true";
+const emulatorHost = import.meta.env.PUBLIC_FIRESTORE_EMULATOR_HOST ?? "localhost";
+const emulatorPort = Number(
+	import.meta.env.PUBLIC_FIRESTORE_EMULATOR_PORT ?? "8080",
+);
+
+if (import.meta.env.DEV && useEmulator) {
+	connectFirestoreEmulator(db, emulatorHost, emulatorPort);
 }
