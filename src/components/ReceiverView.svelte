@@ -30,16 +30,25 @@
   // update the reactive `initialCardState` so `card` updates automatically.
   onMount(async () => {
     if (!initialCardState) {
+      if (typeof navigator !== "undefined" && !navigator.onLine) {
+        // Avoid trying to fetch while the browser is offline.
+        console.warn("Client offline: skipping card fetch");
+        return;
+      }
+
       try {
         const fetched = await getCard(id);
         if (fetched) {
           initialCardState = fetched;
         }
       } catch (err) {
-        console.error("Failed to fetch card on client:", err);
+        // Show non-fatal error state instead of throwing so UI remains stable.
+        console.warn("Failed to fetch card on client:", err);
       }
     }
   });
+
+  let fetchError = $state<string | null>(null);
 
   // Unboxing State
   let isOpening = $state(false); // Envelope flap opens
@@ -185,9 +194,13 @@
               onReplySubmit={handleReplySubmit}
             />
           {:else}
-            <div class="py-12">
-              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-vivid-pink"></div>
-            </div>
+            {#if fetchError}
+              <div class="py-8 text-center text-sm text-deep-raspberry/80">{fetchError}</div>
+            {:else}
+              <div class="py-12">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-vivid-pink"></div>
+              </div>
+            {/if}
           {/if}
         </div>
       </Motion>
