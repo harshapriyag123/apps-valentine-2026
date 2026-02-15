@@ -10,7 +10,7 @@
 		"postinstall": "node -e \"try{require('child_process').spawnSync('npm',['rebuild'],{stdio:'inherit'});}catch(e){}\""
 	},
 	"engines": {
-		"node": ">=18.x"
+		"node": ">=20.6.1"
 	},
 	"dependencies": {
 		"@astrojs/netlify": "^6.6.4",
