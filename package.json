@@ -7,7 +7,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"postinstall": "node -e \"if (!process.env.CI) try{require('child_process').spawnSync('npm',['rebuild'],{stdio:'inherit'});}catch(e){}\""
+		"postinstall": "node -e \"if (!process.env.CI && !process.env.NETLIFY) try{require('child_process').spawnSync('npm',['rebuild'],{stdio:'inherit'});}catch(e){}\""
 	},
 	"engines": {
 		"node": ">=20.19.0"
